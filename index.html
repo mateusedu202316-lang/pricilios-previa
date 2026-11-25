@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pri Cílios Lash &amp; Academy</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap">
+<style>
+/* Layout: editorial studio page. Arch-shaped photos, one giant 1h30 ring, sticky pill nav, dark plum Academy band. */
+:root{
+  --bg:#fcf1ee; --paper:#fff9f7; --ink:#1b1015; --muted:#6c5860;
+  --accent:#ee2a7b; --accent-ink:#ffffff; --soft:#ffd8e7; --deep:#26101c; --deep-ink:#fbeef2;
+  --line:rgba(27,16,21,.12);
+  --f-display:"Playfair Display",Georgia,"Times New Roman",serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --r-lg:28px; --r-md:18px;
+  color-scheme:light;
+}
+:root[data-tema="azul"]{--bg:#f1f5fa;--paper:#fafcff;--ink:#0d1a2b;--muted:#566377;--accent:#2d5f9a;--soft:#d9e6f4;--deep:#0d1a2b;--deep-ink:#e9f0f8;--line:rgba(13,26,43,.12)}
+:root[data-tema="turquesa"]{--bg:#f2f9f9;--paper:#fafefe;--ink:#0b2427;--muted:#4f6a6d;--accent:#17a2b0;--soft:#c9eef1;--deep:#0b2427;--deep-ink:#e6f6f7;--line:rgba(11,36,39,.12)}
+
+*{box-sizing:border-box}
+html{overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1 em,h2 em,h3 em{font-style:italic;color:var(--accent);font-weight:600}
+p{margin:0}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+.w{width:100%;max-width:1200px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:2px;background:currentColor}
+section{padding-block:clamp(56px,9vw,112px)}
+.h2{font-size:clamp(34px,5.4vw,60px)}
+.lead{font-size:clamp(16px,1.6vw,19px);color:var(--muted);max-width:56ch}
+.sec-head{display:grid;gap:16px;margin-bottom:clamp(28px,4vw,48px)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;text-decoration:none;font-weight:700;font-size:15px;padding:14px 22px;border-radius:999px;background:var(--accent);color:var(--accent-ink);transition:transform .2s,box-shadow .2s;box-shadow:0 10px 24px -10px var(--accent)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 28px -12px var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:none;border:1.5px solid var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+.btn.dark{background:var(--ink);color:var(--bg);box-shadow:none}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* preview band + nav */
+.preview{background:var(--deep);color:var(--deep-ink);font-size:12px;letter-spacing:.06em;text-align:center;padding:8px 16px;position:relative;z-index:61}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;padding-block:10px}
+.nav .bar{display:flex;align-items:center;gap:18px;justify-content:space-between;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px;padding:8px 8px 8px 22px}
+.logo{font-family:var(--f-display);font-size:24px;font-weight:600;text-decoration:none;display:flex;gap:6px;align-items:baseline}
+.logo i{color:var(--accent);font-weight:600}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.nav ul a{font-size:14px;font-weight:600;text-decoration:none;padding:8px 14px;border-radius:999px;color:var(--muted);transition:.2s}
+.nav ul a:hover,.nav ul a.on{background:var(--soft);color:var(--ink)}
+@media(max-width:920px){.nav ul{display:none}}
+.prog{position:fixed;left:0;top:0;height:3px;width:0;background:var(--accent);z-index:70}
+
+/* hero */
+.hero{padding-block:clamp(24px,4vw,56px) clamp(48px,7vw,96px);overflow:clip}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,72px);align-items:center}
+.hero h1{font-size:clamp(46px,8.2vw,108px);margin-block:18px 22px}
+.hero h1 .l{display:block}
+.hero .lead{margin-bottom:30px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}
+.hero-meta div{font-size:13px;color:var(--muted)}
+.hero-meta b{display:block;font-family:var(--f-display);font-size:26px;color:var(--ink);font-weight:600}
+.arch-wrap{position:relative;max-width:520px;width:100%;margin-inline:auto;aspect-ratio:4/5.2}
+.arch{position:absolute;inset:0;border-radius:999px 999px var(--r-lg) var(--r-lg);overflow:hidden;background:var(--soft);transform:translate(var(--px,0),var(--py,0));transition:transform .25s ease-out}
+.arch img{width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
+.arch-ring{position:absolute;inset:-14px;border:1.5px solid var(--accent);border-radius:999px 999px 36px 36px;opacity:.5;pointer-events:none}
+.chip{position:absolute;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 30px -14px rgba(0,0,0,.35);border-radius:999px;padding:9px 16px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;animation:float 6s ease-in-out infinite}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.chip.a{left:-4%;top:18%}
+.chip.b{right:-3%;top:52%;animation-delay:-2s}
+.chip.c{left:6%;bottom:6%;animation-delay:-4s}
+@keyframes float{50%{transform:translateY(-8px)}}
+.seal{position:absolute;right:-6%;top:-5%;width:128px;height:128px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;z-index:2}
+.seal svg{position:absolute;inset:0;animation:spin 22s linear infinite}
+.seal span{font-family:var(--f-display);font-size:34px;font-style:italic}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}.arch-wrap{max-width:420px}.seal{width:100px;height:100px;right:0}.chip.a{left:0}.chip.b{right:0}}
+
+/* marquee */
+.marq{background:var(--deep);color:var(--deep-ink);overflow:hidden;padding-block:18px;white-space:nowrap}
+.marq .t{display:inline-flex;gap:36px;animation:marq 38s linear infinite;padding-right:36px}
+.marq span{font-family:var(--f-display);font-style:italic;font-size:26px;display:inline-flex;align-items:center;gap:36px}
+.marq span::after{content:"✦";font-style:normal;font-size:14px;color:var(--accent)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ring + process */
+.proc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,6vw,80px);align-items:center}
+.ring{position:relative;width:min(100%,380px);aspect-ratio:1;margin-inline:auto}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:10}
+.ring .bg{stroke:var(--soft)}
+.ring .fg{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:754;stroke-dashoffset:754;transition:stroke-dashoffset 2s cubic-bezier(.2,.8,.2,1)}
+.ring.in .fg{stroke-dashoffset:75}
+.ring .c{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.ring .c b{font-family:var(--f-display);font-size:clamp(64px,12vw,104px);font-weight:600;line-height:1}
+.ring .c small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.steps{display:grid;gap:0;margin-top:28px;counter-reset:s}
+.step{display:grid;grid-template-columns:44px 1fr;gap:18px;padding-block:20px;border-top:1px solid var(--line)}
+.step:last-child{border-bottom:1px solid var(--line)}
+.step::before{counter-increment:s;content:counter(s);width:44px;height:44px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-family:var(--f-display);font-weight:600;font-size:19px}
+.step h3{font-size:22px;margin-bottom:4px}
+.step p{color:var(--muted);font-size:15px}
+@media(max-width:860px){.proc{grid-template-columns:1fr}}
+
+/* services */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.tab{border:1.5px solid var(--line);background:transparent;padding:10px 20px;border-radius:999px;font-weight:700;font-size:14px;cursor:pointer;transition:.2s}
+.tab:hover{border-color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.price-bar{display:flex;flex-wrap:wrap;gap:14px 36px;align-items:baseline;padding:18px 24px;border-radius:var(--r-md);background:var(--soft);margin-bottom:22px}
+.price-bar b{font-family:var(--f-display);font-size:30px;font-weight:600;font-variant-numeric:tabular-nums}
+.price-bar span{font-size:13px;color:var(--muted);display:block;letter-spacing:.04em}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px}
+.card{position:relative;text-align:left;border:0;padding:0;background:var(--paper);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;display:flex;flex-direction:column;box-shadow:0 1px 0 var(--line),0 18px 40px -26px rgba(38,16,28,.45);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.card:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 28px 50px -24px rgba(38,16,28,.5)}
+.card .ph{aspect-ratio:1/1.05;overflow:hidden;background:var(--soft)}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.card:hover .ph img{transform:scale(1.07)}
+.card .bd{padding:18px 20px 22px;display:grid;gap:6px}
+.card h3{font-size:23px}
+.card p{font-size:14px;color:var(--muted);line-height:1.5}
+.card .more{margin-top:8px;font-size:13px;font-weight:700;color:var(--accent);display:flex;gap:6px;align-items:center}
+.list{display:grid;gap:0;max-width:760px}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 4px;border-top:1px solid var(--line);cursor:pointer;transition:padding .2s,background .2s}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row:hover{padding-inline:16px;background:var(--soft);border-radius:12px}
+.row h3{font-size:22px;font-weight:500}
+.row .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px);min-width:20px}
+.row b{font-family:var(--f-display);font-size:24px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--accent)}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,260px);gap:36px;align-items:start}
+.split img{border-radius:var(--r-lg);aspect-ratio:4/5;object-fit:cover;width:100%}
+@media(max-width:760px){.split{grid-template-columns:1fr}.split img{aspect-ratio:16/10}}
+.fine{margin-top:22px;font-size:13px;color:var(--muted)}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(20,8,14,.62);backdrop-filter:blur(6px)}
+.modal.open{display:flex}
+.sheet{background:var(--paper);width:min(880px,100%);max-height:calc(100dvh - 32px);overflow:auto;border-radius:var(--r-lg);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);animation:pop .35s cubic-bezier(.2,.9,.3,1.1)}
+@keyframes pop{from{transform:translateY(24px) scale(.97);opacity:0}}
+.sheet img{width:100%;height:100%;object-fit:cover;min-height:260px}
+.sheet .tx{padding:clamp(22px,4vw,40px);display:grid;gap:14px;align-content:center}
+.sheet h3{font-size:clamp(30px,4vw,42px)}
+.sheet .pr{display:flex;gap:28px;flex-wrap:wrap;padding-block:14px;border-block:1px solid var(--line)}
+.sheet .pr b{font-family:var(--f-display);font-size:28px;display:block;font-weight:600}
+.sheet .pr span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.x{position:absolute;top:calc(16px + env(safe-area-inset-top,0px));right:16px;width:44px;height:44px;border-radius:50%;border:0;background:var(--paper);cursor:pointer;font-size:22px;z-index:2;display:grid;place-items:center}
+@media(max-width:700px){.sheet{grid-template-columns:1fr}.sheet img{height:230px}}
+
+/* quiz */
+.quiz{background:var(--deep);color:var(--deep-ink);border-radius:clamp(24px,4vw,44px);padding:clamp(24px,5vw,64px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,64px);align-items:start}
+.quiz h2{font-size:clamp(34px,5vw,56px)}
+.quiz .lead{color:color-mix(in srgb,var(--deep-ink) 70%,transparent);margin-top:16px}
+.q-prog{display:flex;gap:6px;margin-bottom:22px}
+.q-prog i{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.15);transition:.4s}
+.q-prog i.on{background:var(--accent)}
+.q-q{font-family:var(--f-display);font-size:clamp(24px,3vw,32px);margin-bottom:20px;line-height:1.15}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.opt{text-align:left;border:1.5px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);border-radius:var(--r-md);padding:16px 18px;cursor:pointer;font-weight:600;font-size:15px;transition:.2s;color:var(--deep-ink)}
+.opt small{display:block;font-weight:500;opacity:.65;font-size:13px;margin-top:2px}
+.opt:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);transform:translateY(-2px)}
+.res{display:grid;grid-template-columns:140px minmax(0,1fr);gap:22px;align-items:center}
+.res img{width:140px;height:170px;object-fit:cover;border-radius:999px 999px 18px 18px}
+.res h3{font-size:34px;margin-bottom:6px}
+.res h3 em{color:var(--accent)}
+.res p{opacity:.8;font-size:15px;margin-bottom:6px}
+.res .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn.light{background:rgba(255,255,255,.1);color:var(--deep-ink);box-shadow:none}
+@media(max-width:860px){.quiz{grid-template-columns:1fr}}
+@media(max-width:480px){.res{grid-template-columns:1fr}}
+
+/* mapping */
+.map{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:center}
+.map-photo{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:1;background:var(--soft)}
+.map-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
+.map-photo img.on{opacity:1}
+.map-diagram{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);padding:12px 16px 4px;margin-block:18px}
+.map-diagram svg{width:100%;height:auto;display:block}
+.map-diagram .lash{stroke:var(--ink);stroke-width:3.2;stroke-linecap:round;fill:none}
+.map-diagram .lid{stroke:var(--accent);stroke-width:2;fill:none}
+.map-diagram .eye{fill:var(--soft);stroke:none}
+.map-diagram .iris{fill:var(--accent)}
+.map-diagram text{font-family:var(--f-body);font-size:11px;fill:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+.map h3{font-size:34px;margin-bottom:8px}
+@media(max-width:860px){.map{grid-template-columns:1fr}}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(20px,4vw,48px);align-items:start}
+.panel{background:var(--paper);border-radius:var(--r-lg);padding:clamp(20px,3vw,34px);box-shadow:0 1px 0 var(--line),0 24px 50px -34px rgba(38,16,28,.5)}
+.panel h3{font-size:22px;margin-bottom:14px;font-family:var(--f-body);font-weight:800;letter-spacing:0;font-size:13px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.pill{border:1.5px solid var(--line);background:transparent;border-radius:999px;padding:9px 16px;font-weight:600;font-size:14px;cursor:pointer;transition:.18s;display:inline-flex;gap:8px;align-items:center}
+.pill:hover{border-color:var(--ink)}
+.pill[aria-pressed="true"],.pill[aria-checked="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.pill small{opacity:.7;font-variant-numeric:tabular-nums}
+.total{position:sticky;top:96px}
+.total .big{font-family:var(--f-display);font-size:clamp(54px,8vw,84px);font-weight:600;line-height:1;font-variant-numeric:tabular-nums;color:var(--accent)}
+.total ul{list-style:none;padding:0;margin:18px 0;display:grid;gap:8px;font-size:15px}
+.total li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dotted var(--line);padding-bottom:8px;font-variant-numeric:tabular-nums}
+.total .man{background:var(--soft);padding:12px 16px;border-radius:14px;font-size:14px;margin-bottom:18px}
+@media(max-width:860px){.calc{grid-template-columns:1fr}.total{position:static}}
+
+/* gallery */
+.grid{columns:4 220px;column-gap:14px}
+.grid button{display:block;width:100%;margin:0 0 14px;padding:0;border:0;background:var(--soft);border-radius:var(--r-md);overflow:hidden;cursor:zoom-in;break-inside:avoid}
+.grid img{width:100%;height:auto;transition:transform .5s,filter .3s}
+.grid button:hover img{transform:scale(1.05)}
+.lb{position:fixed;inset:0;z-index:95;background:rgba(14,6,10,.94);display:none;align-items:center;justify-content:center;padding:16px}
+.lb.open{display:flex}
+.lb img{max-height:calc(100dvh - 110px);max-width:min(100%,900px);object-fit:contain;border-radius:14px;touch-action:pan-y}
+.lb .cap{position:absolute;bottom:calc(22px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;color:#fff;font-size:14px;opacity:.8}
+.lb button.n{position:absolute;top:50%;width:48px;height:48px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:22px;cursor:pointer;transform:translateY(-50%)}
+.lb .p{left:max(12px,env(safe-area-inset-left,0px))}.lb .nx{right:max(12px,env(safe-area-inset-right,0px))}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,6vw,80px);align-items:center}
+.about .pic{position:relative;max-width:360px;margin-inline:auto;width:100%}
+.about .pic img{border-radius:999px 999px var(--r-lg) var(--r-lg);width:100%;aspect-ratio:1/1.15;object-fit:cover;object-position:50% 20%}
+.about .pic::after{content:"";position:absolute;inset:18px -18px -18px 18px;border:1.5px solid var(--accent);border-radius:999px 999px var(--r-lg) var(--r-lg);z-index:-1}
+.about blockquote{margin:22px 0 0;padding-left:20px;border-left:3px solid var(--accent);font-family:var(--f-display);font-style:italic;font-size:clamp(20px,2.4vw,26px);line-height:1.3}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:30px}
+.rule{background:var(--paper);border-radius:var(--r-md);padding:18px 20px;font-size:14.5px;display:grid;gap:4px;border:1px solid var(--line)}
+.rule b{font-size:14px}
+@media(max-width:860px){.about{grid-template-columns:1fr}}
+
+/* academy */
+.acad{background:var(--deep);color:var(--deep-ink);border-radius:clamp(24px,4vw,44px);overflow:hidden;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+.acad .tx{padding:clamp(28px,5vw,64px);display:grid;gap:20px;align-content:center}
+.acad h2{font-size:clamp(36px,5.4vw,64px)}
+.acad .lead{color:color-mix(in srgb,var(--deep-ink) 72%,transparent)}
+.acad .ph{min-height:320px}
+.acad .ph img{width:100%;height:100%;object-fit:cover}
+.acad ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.acad li{display:flex;gap:12px;align-items:flex-start;font-size:15px}
+.acad li::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--accent);margin-top:9px}
+@media(max-width:860px){.acad{grid-template-columns:1fr}.acad .ph{order:-1;min-height:260px;max-height:340px}}
+
+/* local */
+.loc{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,64px);align-items:center}
+.loc img{border-radius:var(--r-lg);width:100%;aspect-ratio:1;object-fit:cover}
+.addr{font-family:var(--f-display);font-size:clamp(26px,3.4vw,38px);line-height:1.15;margin:18px 0 6px}
+.pay{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.pay span{padding:8px 16px;border-radius:999px;background:var(--soft);font-weight:700;font-size:14px}
+@media(max-width:860px){.loc{grid-template-columns:1fr}}
+
+footer{background:var(--deep);color:var(--deep-ink);padding-block:56px 40px;margin-top:20px}
+footer .w{display:grid;gap:28px}
+footer .big{font-family:var(--f-display);font-size:clamp(44px,9vw,120px);line-height:1}
+footer .big em{color:var(--accent)}
+footer .fl{display:flex;flex-wrap:wrap;gap:12px 28px;font-size:14px;opacity:.75;justify-content:space-between}
+footer a{text-decoration:none}
+
+/* floating */
+.wa{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:55;width:60px;height:60px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;box-shadow:0 14px 30px -8px var(--accent);text-decoration:none}
+.wa svg{width:28px;height:28px}
+.wa::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--accent);animation:ping 2.4s infinite}
+@keyframes ping{to{transform:scale(1.5);opacity:0}}
+.theme{position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:55;display:flex;align-items:center;gap:8px;background:var(--paper);border:1px solid var(--line);padding:6px 8px 6px 14px;border-radius:999px;font-size:12px;font-weight:700;box-shadow:0 10px 24px -14px rgba(0,0,0,.4)}
+.theme button{width:26px;height:26px;border-radius:50%;border:2px solid var(--paper);cursor:pointer;outline:1.5px solid var(--line)}
+.theme button[aria-pressed="true"]{outline:2px solid var(--ink)}
+.toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:99;max-width:calc(100% - 32px);text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+.rv{transform:translateY(26px);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.rv{transform:none}.ring .fg{stroke-dashoffset:75}}
+</style>
+</head>
+<body>
+
+
+<div class="prog" id="prog"></div>
+<div class="preview">Prévia para aprovação · o número de WhatsApp ainda será confirmado</div>
+
+<header class="nav"><div class="w"><div class="bar">
+  <a class="logo" href="#topo" aria-label="Pri Cílios, início"><span>Pri</span><i>Cílios</i></a>
+  <ul id="menu">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#efeito">Seu efeito</a></li>
+    <li><a href="#mapeamento">Mapeamento</a></li>
+    <li><a href="#orcamento">Orçamento</a></li>
+    <li><a href="#resultados">Resultados</a></li>
+    <li><a href="#academy">Academy</a></li>
+    <li><a href="#local">Como chegar</a></li>
+  </ul>
+  <a class="btn" data-wa="Olá, Pri! Quero agendar um horário." href="#" target="_blank" rel="noopener">Agendar</a>
+</div></div></header>
+
+<main id="topo">
+<section class="hero"><div class="w hero-grid">
+  <div>
+    <div class="eyebrow">Lash designer · Araçatuba, SP</div>
+    <h1><span class="l">Cílios que</span><span class="l">parecem <em>seus.</em></span></h1>
+    <p class="lead">Cílios naturais e marrons, prontos em 1h30. Leves e tão naturais que todo mundo vai perguntar o seu segredo.</p>
+    <div class="cta-row">
+      <a class="btn" data-wa="Olá, Pri! Quero agendar meus cílios." href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.100-1.500-1.100-2.800 0-1.300.7-1.900.9-2.200.2-.3.5-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.300 0 .500l-.3.400-.4.400c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.200 1.300 2.500 1.500.3.100.5.100.7-.1l.9-1.100c.2-.3.4-.2.700-.1l1.900.9c.3.1.5.2.5.3.100.200.100.800-.1 1.400Z"/></svg>Agendar meu horário</a>
+      <a class="btn ghost" href="#servicos">Ver serviços e valores</a>
+    </div>
+    <div class="hero-meta">
+      <div><b>1h30</b>do primeiro fio ao espelho</div>
+      <div><b>9</b>técnicas para o seu olhar</div>
+      <div><b>20 dias</b>para a manutenção</div>
+    </div>
+  </div>
+  <div class="arch-wrap" id="archwrap">
+    <div class="seal"><svg viewBox="0 0 128 128"><defs><path id="c" d="M64,64 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/></defs><text font-size="10.5" letter-spacing="3.3" fill="currentColor" font-family="Manrope" font-weight="700"><textPath href="#c">LASH ACADEMY · CÍLIOS NATURAIS ·</textPath></text></svg><span>Pri</span></div>
+    <div class="arch-ring"></div>
+    <div class="arch"><img src="img/hero.jpg" alt="Olho com extensão de cílios naturais em tom marrom" width="828" height="744"></div>
+    <div class="chip a"><i></i>Natural e marrom</div>
+    <div class="chip b"><i></i>Maca com massagem</div>
+    <div class="chip c"><i></i>Araçatuba · SP</div>
+  </div>
+</div></section>
+
+<div class="marq" aria-hidden="true"><div class="t" id="marq"></div></div>
+
+<section id="atendimento"><div class="w proc">
+  <div class="ring rv" id="ring"><svg viewBox="0 0 260 260"><circle class="bg" cx="130" cy="130" r="120"/><circle class="fg" cx="130" cy="130" r="120"/></svg><div class="c"><b>1h30</b><small>até 2h, conforme seus fios</small></div></div>
+  <div class="rv">
+    <div class="eyebrow">Como é o atendimento</div>
+    <h2 class="h2" style="margin-block:16px 12px">Não se preocupe com a <em>técnica.</em></h2>
+    <p class="lead">Você deita, relaxa e a gente cuida do resto. Verificamos o efeito que vai valorizar o seu olhar.</p>
+    <div class="steps">
+      <div class="step"><div><h3>Avaliação do olhar</h3><p>Olhamos o formato dos seus olhos e escolhemos a técnica e o mapeamento que mais combinam com você.</p></div></div>
+      <div class="step"><div><h3>Aplicação na maca de massagem</h3><p>O procedimento leva de 1h30 a 2h, dependendo da quantidade de fios. Programe-se e venha tranquila.</p></div></div>
+      <div class="step"><div><h3>Manutenção em até 20 dias</h3><p>Com pelo menos 50% dos fios. Passou disso, é preciso uma nova aplicação. A cada 6 meses também.</p></div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="servicos" style="background:var(--paper)"><div class="w">
+  <div class="sec-head rv"><div class="eyebrow">Serviços e valores</div><h2 class="h2">Escolha o seu <em>efeito.</em></h2><p class="lead">Toque em uma técnica para ver os detalhes, os valores e agendar direto.</p></div>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div id="svc"></div>
+  <p class="fine">Valores sujeitos a alteração no pagamento via cartão. Manutenção somente dentro de 20 dias com ao menos 50% dos fios.</p>
+</div></section>
+
+<section id="efeito"><div class="w"><div class="quiz rv">
+  <div><div class="eyebrow" style="color:var(--accent)">Descubra em 3 perguntas</div><h2 style="margin-top:16px">Qual cílios é a sua <em>cara?</em></h2><p class="lead">Responda rápido e veja a técnica e o mapeamento que mais combinam com você. A Pri confirma tudo na avaliação.</p></div>
+  <div id="quiz" aria-live="polite"></div>
+</div></div></section>
+
+<section id="mapeamento" style="background:var(--paper)"><div class="w map">
+  <div class="rv">
+    <div class="eyebrow">Mapeamento</div>
+    <h2 class="h2" style="margin-block:16px 10px">O desenho que muda <em>o olhar.</em></h2>
+    <p class="lead">O mapeamento define onde ficam os fios maiores e menores. Escolha um e veja como o comprimento muda ao longo da pálpebra.</p>
+    <div class="pills" id="mapPills" style="margin-top:22px;margin-bottom:0" role="tablist"></div>
+    <div class="map-diagram"><svg id="mapSvg" viewBox="0 0 400 200" role="img" aria-label="Diagrama do comprimento dos fios ao longo do olho"></svg></div>
+    <div id="mapTx"></div>
+  </div>
+  <div class="map-photo rv" id="mapPhoto"></div>
+</div></section>
+
+<section id="orcamento"><div class="w">
+  <div class="sec-head rv"><div class="eyebrow">Monte o seu orçamento</div><h2 class="h2">Quanto vai <em>ficar?</em></h2><p class="lead">Escolha a técnica e o que mais quiser incluir. O total aparece na hora, já com a manutenção.</p></div>
+  <div class="calc">
+    <div class="panel">
+      <h3>1. Técnica</h3><div class="pills" id="cBase"></div>
+      <h3>2. Adicionais</h3><div class="pills" id="cExtra" style="margin-bottom:0"></div>
+    </div>
+    <div class="panel total">
+      <h3>Seu total hoje</h3>
+      <div class="big" id="cTotal">R$ 0</div>
+      <ul id="cList"></ul>
+      <div class="man" id="cMan"></div>
+      <a class="btn" id="cWa" href="#" target="_blank" rel="noopener" style="width:100%;justify-content:center">Agendar com esse orçamento</a>
+      <p class="fine" style="margin-top:14px">Valores sujeitos a alteração no pagamento via cartão.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="resultados" style="background:var(--paper)"><div class="w">
+  <div class="sec-head rv"><div class="eyebrow">Resultados</div><h2 class="h2">Olhares que <em>vendem.</em></h2><p class="lead">Toque em uma foto para ampliar. Use as setas do teclado ou deslize no celular.</p></div>
+  <div class="grid" id="gal"></div>
+</div></section>
+
+<section id="sobre"><div class="w about">
+  <div class="pic rv"><img src="img/pri.jpg" alt="Pri, lash designer em Araçatuba" width="846" height="792"></div>
+  <div class="rv">
+    <div class="eyebrow">Quem cuida do seu olhar</div>
+    <h2 class="h2" style="margin-block:16px 12px">Prazer, eu sou a <em>Pri.</em></h2>
+    <p class="lead">Sou lash designer em Araçatuba e referência em cílios naturais e marrons. Meu objetivo é um tipo de beleza que ninguém percebe que é extensão: só percebe que você está linda.</p>
+    <blockquote>Cílios naturais, marrons e prontos em 1h30.</blockquote>
+    <div class="rules">
+      <div class="rule"><b>Venha sem rímel</b>Sem maquiagem na região dos olhos. Se usa lentes de contato, retire antes.</div>
+      <div class="rule"><b>Atendimento só seu</b>Por gentileza, não traga acompanhantes ou crianças.</div>
+      <div class="rule"><b>Faltas</b>Em caso de não comparecimento, cobramos o valor do procedimento para um novo agendamento. Em caso de falta o valor não é restituído.</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="academy"><div class="w"><div class="acad rv">
+  <div class="tx">
+    <div class="eyebrow" style="color:var(--accent)">Lash Academy</div>
+    <h2>Aprenda a técnica de quem é <em>referência.</em></h2>
+    <p class="lead">Transforme cílios em renda. Fature +R$100 a cada 1h30 atendendo com a técnica que a Pri ensina.</p>
+    <ul><li>Curso presencial no studio, com acompanhamento</li><li>Mentoria on-line, do zero à agenda cheia</li><li>Certificado de conclusão</li></ul>
+    <div class="cta-row"><a class="btn" data-wa="Olá, Pri! Quero saber da agenda de cursos da Lash Academy." href="#" target="_blank" rel="noopener">Quero ser aluna</a><a class="btn light" data-wa="Olá, Pri! Pode me passar as próximas datas de curso?" href="#" target="_blank" rel="noopener">Ver agenda de cursos</a></div>
+  </div>
+  <div class="ph"><img src="img/formatura.jpg" alt="Pri entregando o certificado a uma aluna no studio"></div>
+</div></div></section>
+
+<section id="local" style="padding-top:0"><div class="w loc">
+  <img src="img/fachada.jpg" alt="Fachada do studio na Rua Antônio Gomes do Amaral, Araçatuba" class="rv">
+  <div class="rv">
+    <div class="eyebrow">Como chegar</div>
+    <div class="addr">R. Antônio Gomes do Amaral, 334<br>Araçatuba · SP</div>
+    <p class="lead">Ponto de referência: próximo ao Colégio Extensão. Fácil de encontrar, é o salão de esquina.</p>
+    <div class="cta-row" style="margin-top:22px">
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=R.+Ant%C3%B4nio+Gomes+do+Amaral%2C+334+Ara%C3%A7atuba+SP" target="_blank" rel="noopener">Abrir a rota no mapa</a>
+      <button class="btn ghost" id="copyAddr" type="button">Copiar endereço</button>
+    </div>
+    <div class="pay" aria-label="Formas de pagamento"><span>Pix</span><span>Dinheiro</span><span>Cartão de débito e crédito</span></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="w">
+  <div class="big">Bora deixar o seu<br>olhar <em>natural?</em></div>
+  <div class="cta-row"><a class="btn" data-wa="Olá, Pri! Quero agendar meu horário." href="#" target="_blank" rel="noopener">Agendar pelo WhatsApp</a><a class="btn light" href="https://www.instagram.com/priciliosaracatuba/" target="_blank" rel="noopener">@priciliosaracatuba</a></div>
+  <div class="fl"><span>Pri Cílios · Lash &amp; Academy · Araçatuba, SP</span><span>Prévia do site</span></div>
+</div></footer>
+
+<a class="wa" data-wa="Olá, Pri! Vim pelo site e quero agendar." href="#" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.2 1.3 2.5 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4Z"/></svg></a>
+<div class="theme" aria-label="Paleta da prévia"><span>Paleta</span><button type="button" data-t="rosa" style="background:#ee2a7b" aria-label="Rosa" aria-pressed="true"></button><button type="button" data-t="azul" style="background:#2d5f9a" aria-label="Azul" aria-pressed="false"></button><button type="button" data-t="turquesa" style="background:#17a2b0" aria-label="Turquesa" aria-pressed="false"></button></div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Detalhes do serviço"><button class="x" id="mx" aria-label="Fechar" type="button">×</button><div class="sheet" id="sheet"></div></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada"><button class="x" id="lx" type="button" aria-label="Fechar">×</button><button class="n p" id="lp" type="button" aria-label="Foto anterior">‹</button><img id="li" alt=""><button class="n nx" id="ln" type="button" aria-label="Próxima foto">›</button><div class="cap" id="lc"></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+"use strict";
+/* ===== dados do catálogo ===== */
+var WHATS = ""; // número com DDI, ex.: 5518999999999. Vazio = abre o Instagram.
+var IG = "https://www.instagram.com/priciliosaracatuba/";
+var brl = function(n){return "R$ "+n.toLocaleString("pt-BR",{minimumFractionDigits:0})};
+var GROUPS = {
+  trad:{label:"Técnicas tradicionais",apl:160,man:120,items:[
+    {id:"bella",n:"Volume Bella",d:"Efeito natural, clean girl, para quem busca algo estilo rímel.",img:"bella"},
+    {id:"aurora",n:"Volume Aurora",d:"Preenchimento sutil, para quem busca pouco volume.",img:"aurora",pos:"50% 30%"},
+    {id:"cacau",n:"Volume Cacau",d:"Cor marrom, para quem gosta de ser discreta. Queridinho das loiras e ruivas.",img:"cacau"},
+    {id:"luxo",n:"Volume Luxo",d:"Efeito com preenchimento esfumado.",img:"luxo",pos:"50% 35%"},
+    {id:"glamour",n:"Volume Glamour",d:"Ideal para quem gosta de preenchimento marcante.",img:"glamour",pos:"50% 30%"}]},
+  gringa:{label:"Técnicas gringas",apl:180,man:140,items:[
+    {id:"sirena",n:"Sirena / Fox Light",d:"Alongado sutil em degradê.",img:"g-sirena"},
+    {id:"wispy",n:"Efeito Wispy",d:"Preenchimento com spikes.",img:"g-wispy"},
+    {id:"fox",n:"Fox",d:"Olhar de raposa, delineado. Também disponível no marrom.",img:"g-fox"},
+    {id:"led",n:"Cílios no LED UV",d:"Durabilidade prolongada, sem manutenção.",img:"g-led",noman:true}]},
+  sobr:{label:"Sobrancelhas",list:[["Design simples",25],["Somente henna",25],["Design + henna",50],["Protocolo de reconstrução",80],["Brow lamination",130]],img:"sobrancelha"},
+  outros:{label:"Outros serviços",list:[["Cílios inferiores",100],["Remoção",50],["Teste alérgico",40],["Buço",15]],img:"cliente2"}
+};
+var MAPS = [
+  {id:"boneca",n:"Efeito boneca",img:"map-boneca",d:"Aumenta o tamanho dos olhos e deixa o olhar mais redondo. Ideal para orientais e para quem tem olhos pequenos. Fios maiores na região central e menores nas laterais.",f:function(t){return 15+40*Math.pow(Math.sin(Math.PI*t),1.6)}},
+  {id:"esquilo",n:"Efeito esquilo",img:"map-esquilo",d:"O mais procurado por quem quer um olhar sensual e expressivo. Fios maiores no ponto alto da sobrancelha, para um olhar harmônico. Indicado para todos os tipos de olhos e mantém o formato do olho.",f:function(t){return 16+36*Math.exp(-Math.pow((t-.64)/.2,2))}},
+  {id:"gatinho",n:"Efeito gatinho",img:"map-gatinho",d:"Para quem quer olhos mais delineados e expressivos. Fios maiores no canto externo e menores, de forma gradual, até o canto interno. Não é o mais indicado para olhos caídos.",f:function(t){return 13+42*Math.pow(t,1.7)}}
+];
+var GAL = [["olho-natural","Cílios naturais"],["cliente1","Volume Luxo"],["glamour","Volume Glamour"],["cliente2","Design de sobrancelha"],["aurora","Volume Aurora"],["g-led","Cílios no LED UV"],["cliente3","Resultado natural"],["sobrancelha","Sobrancelha com henna"],["luxo","Volume Luxo"],["fox-liner","Fox"],["bella","Volume Bella"],["cliente4","Resultado natural"],["g-wispy","Efeito Wispy"],["cacau","Volume Cacau"]];
+var EXTRAS = [["Cílios inferiores",100],["Remoção",50],["Teste alérgico",40],["Design simples",25],["Design + henna",50],["Brow lamination",130],["Buço",15]];
+
+/* ===== util ===== */
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+function wa(msg){return WHATS?("https://wa.me/"+WHATS+"?text="+encodeURIComponent(msg)):IG}
+function toast(t){var e=$("#toast");e.textContent=t;e.classList.add("on");clearTimeout(toast._t);toast._t=setTimeout(function(){e.classList.remove("on")},2600)}
+function bindWa(root){$$("[data-wa]",root).forEach(function(a){a.href=wa(a.getAttribute("data-wa"))})}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+var ALL={};Object.keys(GROUPS).forEach(function(k){(GROUPS[k].items||[]).forEach(function(i){i.g=GROUPS[k];ALL[i.id]=i})});
+
+/* ===== marquee ===== */
+(function(){var w=["Volume Bella","Aurora","Cacau","Luxo","Glamour","Fox","Wispy","Sirena","LED UV","Brow lamination","Efeito boneca","Efeito esquilo","Efeito gatinho"];
+var h=w.map(function(x){return "<span>"+x+"</span>"}).join("");$("#marq").innerHTML=h+h})();
+
+/* ===== serviços ===== */
+var cur="trad";
+function renderTabs(){
+  $("#tabs").innerHTML=Object.keys(GROUPS).map(function(k){return '<button class="tab" role="tab" data-k="'+k+'" aria-selected="'+(k===cur)+'">'+GROUPS[k].label+'</button>'}).join("");
+  $$(".tab").forEach(function(b){b.onclick=function(){cur=b.dataset.k;renderTabs();renderSvc()}});
+}
+function card(i){return '<button class="card" data-id="'+i.id+'"><div class="ph"><img src="img/'+i.img+'.jpg" alt="" style="object-position:'+(i.pos||"50% 50%")+'"></div><div class="bd"><h3>'+esc(i.n)+'</h3><p>'+esc(i.d)+'</p><span class="more">Ver detalhes →</span></div></button>'}
+function renderSvc(){
+  var g=GROUPS[cur],h="";
+  if(g.items){
+    h+='<div class="price-bar"><div><span>Aplicação</span><b>'+brl(g.apl)+'</b></div>'+(cur==="gringa"?'<div><span>Manutenção</span><b>'+brl(g.man)+'</b></div>':'<div><span>Manutenção</span><b>'+brl(g.man)+'</b></div>')+(cur==="gringa"?'<div><span>LED UV</span><b style="font-size:20px">sem manutenção</b></div>':'')+'</div>';
+    h+='<div class="cards">'+g.items.map(card).join("")+'</div>';
+  }else{
+    h+='<div class="split"><div class="list">'+g.list.map(function(r,ix){return '<div class="row" data-r="'+ix+'" tabindex="0" role="button"><h3>'+esc(r[0])+'</h3><span class="dots"></span><b>'+brl(r[1])+'</b></div>'}).join("")+'</div><img src="img/'+g.img+'.jpg" alt=""></div>';
+  }
+  $("#svc").innerHTML=h;
+  $$(".card").forEach(function(c){c.onclick=function(){openSheet(ALL[c.dataset.id])}});
+  $$(".row").forEach(function(r){var go=function(){var it=g.list[r.dataset.r];openSheet({n:it[0],d:"Valor do serviço. Agende e a Pri combina tudo com você.",img:g.img,price:it[1]})};r.onclick=go;r.onkeydown=function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();go()}}});
+}
+function openSheet(i){
+  var pr;
+  if(i.price!=null)pr='<div><b>'+brl(i.price)+'</b><span>Valor</span></div>';
+  else{pr='<div><b>'+brl(i.g.apl)+'</b><span>Aplicação</span></div>'+(i.noman?'<div><b style="font-size:20px;padding-top:6px">Sem manutenção</b><span>Durabilidade prolongada</span></div>':'<div><b>'+brl(i.g.man)+'</b><span>Manutenção</span></div>')}
+  $("#sheet").innerHTML='<img src="img/'+i.img+'.jpg" alt="'+esc(i.n)+'" style="object-position:'+(i.pos||"50% 50%")+'"><div class="tx"><div class="eyebrow">'+(i.g?esc(i.g.label):"Serviço")+'</div><h3>'+esc(i.n)+'</h3><p class="lead">'+esc(i.d)+'</p><div class="pr">'+pr+'</div><p class="fine" style="margin:0">'+(i.price!=null?"Valores sujeitos a alteração no pagamento via cartão.":"Manutenção somente dentro de 20 dias com ao menos 50% dos fios. Valores sujeitos a alteração no pagamento via cartão.")+'</p><a class="btn" id="sheetWa" href="'+wa("Olá, Pri! Quero agendar: "+i.n+".")+'" target="_blank" rel="noopener">Agendar '+esc(i.n)+'</a></div>';
+  $("#modal").classList.add("open");document.body.style.overflow="hidden";$("#mx").focus();
+}
+function closeSheet(){$("#modal").classList.remove("open");document.body.style.overflow=""}
+$("#mx").onclick=closeSheet;$("#modal").onclick=function(e){if(e.target===this)closeSheet()};
+renderTabs();renderSvc();
+
+/* ===== quiz ===== */
+var QZ=[
+ {q:"Que resultado você quer?",o:[["Quase imperceptível","Como um rímel bem feito","bella"],["Um pouco de volume","Preenchimento sutil","aurora"],["Esfumado e cheio","Olhar preenchido","luxo"],["Marcante","Volume que aparece","glamour"],["Delineado de raposa","Olhar alongado","fox"],["Fios com spikes","Efeito wispy","wispy"],["Durar sem manutenção","Cílios no LED UV","led"]]},
+ {q:"Como são os seus olhos?",o:[["Pequenos ou redondos","Quero aumentar o tamanho","boneca"],["Quero um olhar sensual","Expressivo e harmônico","esquilo"],["Quero olhos delineados","Alongado no canto externo","gatinho"],["Olhos caídos","Preciso de um desenho que levante","esquilo"],["Não sei","A Pri avalia comigo","esquilo"]]},
+ {q:"Qual cor combina com você?",o:[["Preto clássico","Mais definição","preto"],["Marrom discreto","Queridinho das loiras e ruivas","marrom"]]}
+];
+var qs=0,qa=[];
+function renderQuiz(){
+  var box=$("#quiz");
+  if(qs<QZ.length){
+    var q=QZ[qs];
+    box.innerHTML='<div class="q-prog">'+QZ.map(function(_,i){return '<i class="'+(i<=qs?"on":"")+'"></i>'}).join("")+'</div><div class="q-q">'+q.q+'</div><div class="opts">'+q.o.map(function(o,i){return '<button class="opt" data-i="'+i+'">'+o[0]+'<small>'+o[1]+'</small></button>'}).join("")+'</div>';
+    $$(".opt",box).forEach(function(b){b.onclick=function(){qa.push(q.o[b.dataset.i][2]);qs++;renderQuiz()}});
+  }else{
+    var t=qa[0],map=qa[1],cor=qa[2];
+    if(cor==="marrom"&&(t==="bella"||t==="aurora"))t="cacau";
+    var it=ALL[t],mp=MAPS.filter(function(m){return m.id===map})[0];
+    var note=(t==="fox"&&cor==="marrom")?" Disponível no marrom.":"";
+    box.innerHTML='<div class="q-prog">'+QZ.map(function(){return '<i class="on"></i>'}).join("")+'</div><div class="res"><img src="img/'+it.img+'.jpg" alt="" style="object-position:'+(it.pos||"50% 50%")+'"><div><div class="eyebrow" style="color:var(--accent)">Combina com você</div><h3>'+esc(it.n)+' <em>+ '+mp.n.toLowerCase()+'</em></h3><p>'+esc(it.d)+note+'</p><p>Aplicação '+brl(it.g.apl)+(it.noman?' · sem manutenção':' · manutenção '+brl(it.g.man))+'</p><div class="btns"><a class="btn" href="'+wa("Olá, Pri! Fiz o quiz no site e combinei com "+it.n+" no "+mp.n.toLowerCase()+". Quero agendar.")+'" target="_blank" rel="noopener">Agendar esse look</a><button class="btn light" id="qr" type="button">Refazer</button></div></div></div>';
+    $("#qr").onclick=function(){qs=0;qa=[];renderQuiz()};
+    if(map==="gatinho")toast("Lembrete: o gatinho não é o mais indicado para olhos caídos.");
+  }
+}
+renderQuiz();
+
+/* ===== mapeamento ===== */
+var curM=1,SVGNS="http://www.w3.org/2000/svg",N=17,lens=MAPS[1].f?[]:[];
+function pt(t){var x=40+320*t,y=(1-t)*(1-t)*120+2*t*(1-t)*20+t*t*120;return [x,y]}
+function nrm(t){var dx=320,dy=2*(1-t)*(20-120)+2*t*(120-20);var l=Math.hypot(dx,dy);return [dy/l,-dx/l]}
+var svg=$("#mapSvg");
+svg.innerHTML='<path class="eye" d="M40 120 Q200 20 360 120 Q200 190 40 120Z"/><circle class="iris" cx="200" cy="112" r="30" opacity=".85"/><circle cx="200" cy="112" r="11" fill="#1b1015"/><path class="lid" d="M40 120 Q200 20 360 120"/><text x="40" y="196">Canto interno</text><text x="360" y="196" text-anchor="end">Canto externo</text>';
+var lashes=[];
+for(var i=0;i<N;i++){var p=document.createElementNS(SVGNS,"path");p.setAttribute("class","lash");svg.appendChild(p);lashes.push(p)}
+function draw(L){for(var i=0;i<N;i++){var t=i/(N-1),p=pt(t),n=nrm(t);
+  var lean=(t-.5)*.9,dir=[n[0]+lean,n[1]];var dl=Math.hypot(dir[0],dir[1]);dir=[dir[0]/dl,dir[1]/dl];
+  var ex=p[0]+dir[0]*L[i],ey=p[1]+dir[1]*L[i],cx=p[0]+dir[0]*L[i]*.5+ (t<.5?-1:1)*L[i]*.12,cy=p[1]+dir[1]*L[i]*.5;
+  lashes[i].setAttribute("d","M"+p[0].toFixed(1)+" "+p[1].toFixed(1)+" Q"+cx.toFixed(1)+" "+cy.toFixed(1)+" "+ex.toFixed(1)+" "+ey.toFixed(1))}}
+var curL=[],raf;
+function target(m){var a=[];for(var i=0;i<N;i++)a.push(m.f(i/(N-1)));return a}
+function animTo(m){var to=target(m),from=curL.length?curL.slice():to.map(function(){return 8}),s=null;cancelAnimationFrame(raf);
+  (function step(ts){if(!s)s=ts;var k=Math.min(1,(ts-s)/650),e=1-Math.pow(1-k,3);curL=from.map(function(f,i){return f+(to[i]-f)*e});draw(curL);if(k<1)raf=requestAnimationFrame(step)})(performance.now())}
+$("#mapPhoto").innerHTML=MAPS.map(function(m,i){return '<img src="img/'+m.img+'.jpg" alt="Exemplo de '+m.n.toLowerCase()+'" class="'+(i===curM?"on":"")+'">'}).join("");
+function setMap(i){curM=i;var m=MAPS[i];
+  $("#mapPills").innerHTML=MAPS.map(function(x,j){return '<button class="pill" role="tab" data-i="'+j+'" aria-pressed="'+(j===i)+'">'+x.n+'</button>'}).join("");
+  $$("#mapPills .pill").forEach(function(b){b.onclick=function(){setMap(+b.dataset.i)}});
+  $("#mapTx").innerHTML='<h3>'+m.n+'</h3><p class="lead">'+m.d+'</p>';
+  $$("#mapPhoto img").forEach(function(im,j){im.classList.toggle("on",j===i)});
+  animTo(m)}
+setMap(1);
+
+/* ===== orçamento ===== */
+var cb="bella",ce={};
+function allBase(){var a=[];["trad","gringa"].forEach(function(k){GROUPS[k].items.forEach(function(i){a.push(i)})});return a}
+function renderCalc(){
+  $("#cBase").innerHTML=allBase().map(function(i){return '<button class="pill" role="radio" data-id="'+i.id+'" aria-checked="'+(i.id===cb)+'">'+esc(i.n)+' <small>'+brl(i.g.apl)+'</small></button>'}).join("");
+  $("#cExtra").innerHTML=EXTRAS.map(function(e,ix){return '<button class="pill" data-x="'+ix+'" aria-pressed="'+(!!ce[ix])+'">'+e[0]+' <small>+'+brl(e[1])+'</small></button>'}).join("");
+  $$("#cBase .pill").forEach(function(b){b.onclick=function(){cb=b.dataset.id;renderCalc()}});
+  $$("#cExtra .pill").forEach(function(b){b.onclick=function(){ce[b.dataset.x]=!ce[b.dataset.x];renderCalc()}});
+  var it=ALL[cb],tot=it.g.apl,rows=[[it.n,it.g.apl]],ex=[];
+  EXTRAS.forEach(function(e,ix){if(ce[ix]){tot+=e[1];rows.push([e[0],e[1]]);ex.push(e[0])}});
+  $("#cList").innerHTML=rows.map(function(r){return '<li><span>'+esc(r[0])+'</span><b>'+brl(r[1])+'</b></li>'}).join("");
+  var big=$("#cTotal"),from=+big.dataset.v||0;big.dataset.v=tot;var s=null;
+  (function step(ts){if(!s)s=ts;var k=Math.min(1,(ts-s)/450),v=Math.round(from+(tot-from)*(1-Math.pow(1-k,3)));big.textContent=brl(v);if(k<1)requestAnimationFrame(step)})(performance.now());
+  $("#cMan").innerHTML=it.noman?'<b>Sem manutenção.</b> Esta técnica tem durabilidade prolongada.':'<b>Manutenção: '+brl(it.g.man)+'.</b> Somente dentro de 20 dias com ao menos 50% dos fios.';
+  $("#cWa").href=wa("Olá, Pri! Quero agendar "+it.n+(ex.length?" com "+ex.join(", "):"")+". Total do orçamento no site: "+brl(tot)+".");
+}
+renderCalc();
+
+/* ===== galeria + lightbox ===== */
+$("#gal").innerHTML=GAL.map(function(g,i){return '<button data-i="'+i+'" aria-label="Ampliar: '+esc(g[1])+'"><img src="img/'+g[0]+'.jpg" alt="'+esc(g[1])+'"></button>'}).join("");
+var li=0;
+function showLb(i){li=(i+GAL.length)%GAL.length;var im=$("#li");im.src="img/"+GAL[li][0]+".jpg";im.alt=GAL[li][1];$("#lc").textContent=GAL[li][1]+" · "+(li+1)+" de "+GAL.length;$("#lb").classList.add("open");document.body.style.overflow="hidden"}
+function hideLb(){$("#lb").classList.remove("open");document.body.style.overflow=""}
+$$("#gal button").forEach(function(b){b.onclick=function(){showLb(+b.dataset.i)}});
+$("#lx").onclick=hideLb;$("#lp").onclick=function(){showLb(li-1)};$("#ln").onclick=function(){showLb(li+1)};
+$("#lb").onclick=function(e){if(e.target===this)hideLb()};
+var sx=null;$("#lb").addEventListener("touchstart",function(e){sx=e.touches[0].clientX},{passive:true});
+$("#lb").addEventListener("touchend",function(e){if(sx==null)return;var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)showLb(li+(d<0?1:-1));sx=null},{passive:true});
+document.addEventListener("keydown",function(e){
+  if($("#lb").classList.contains("open")){if(e.key==="Escape")hideLb();if(e.key==="ArrowLeft")showLb(li-1);if(e.key==="ArrowRight")showLb(li+1)}
+  else if($("#modal").classList.contains("open")&&e.key==="Escape")closeSheet()});
+
+/* ===== endereço, tema, nav, scroll ===== */
+$("#copyAddr").onclick=function(){var t="R. Antônio Gomes do Amaral, 334, Araçatuba - SP";
+  var ok=function(){toast("Endereço copiado")},no=function(){toast(t)};
+  try{navigator.clipboard.writeText(t).then(ok,no)}catch(e){no()}};
+function setTema(t){document.documentElement.setAttribute("data-tema",t==="rosa"?"":t);if(t==="rosa")document.documentElement.removeAttribute("data-tema");
+  $$(".theme button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.t===t)});try{localStorage.setItem("pri-tema",t)}catch(e){}}
+$$(".theme button").forEach(function(b){b.onclick=function(){setTema(b.dataset.t)}});
+try{var sv=localStorage.getItem("pri-tema");if(sv)setTema(sv)}catch(e){}
+var qsT=(location.search.match(/tema=(\w+)/)||[])[1];if(qsT)setTema(qsT);
+bindWa(document);
+
+var secs=$$("main section[id]"),links=$$("#menu a");
+function onScroll(){var h=document.documentElement,sc=h.scrollTop||document.body.scrollTop,mx=h.scrollHeight-h.clientHeight;$("#prog").style.width=(mx>0?sc/mx*100:0)+"%";
+  var cy=sc+140,cur="";secs.forEach(function(s){if(s.offsetTop<=cy)cur=s.id});links.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+cur)})}
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+var aw=$("#archwrap");
+if(aw&&matchMedia("(hover:hover)").matches)aw.addEventListener("mousemove",function(e){var r=aw.getBoundingClientRect();aw.style.setProperty("--px",((e.clientX-r.left)/r.width-.5)*14+"px");aw.style.setProperty("--py",((e.clientY-r.top)/r.height-.5)*14+"px")});
+if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});$$(".rv").forEach(function(el){io.observe(el)})}
+else $$(".rv").forEach(function(el){el.classList.add("in")});
+})();
+</script>
+
+</body>
+</html>
