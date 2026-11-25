@@ -11,15 +11,15 @@
 <style>
 /* Layout: editorial studio page. Arch-shaped photos, one giant 1h30 ring, sticky pill nav, dark plum Academy band. */
 :root{
-  --bg:#f2f9f9; --paper:#fafefe; --ink:#1d4448; --muted:#527073; --accent:#17a2b0; --accent-ink:#ffffff; --accent-hi:#6fdbe5; --soft:#cdeef1; --deep:#235a60; --deep-ink:#effafb;
-  --line:rgba(29,68,72,.14);
+  --bg:#f1f5fa; --paper:#fafcff; --ink:#1d3a5f; --muted:#52657e; --accent:#2d6aa8; --accent-ink:#ffffff; --accent-hi:#8dbcf0; --soft:#d9e6f4; --deep:#294d7d; --deep-ink:#eef4fb;
+  --line:rgba(29,58,95,.14);
   --f-display:"Playfair Display",Georgia,"Times New Roman",serif;
   --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --r-lg:28px; --r-md:18px;
   color-scheme:light;
 }
+:root[data-tema="turquesa"]{--bg:#f2f9f9;--paper:#fafefe;--ink:#1d4448;--muted:#527073;--accent:#17a2b0;--accent-hi:#6fdbe5;--soft:#cdeef1;--deep:#235a60;--deep-ink:#effafb;--line:rgba(29,68,72,.14)}
 :root[data-tema="rosa"]{--bg:#fcf1ee;--paper:#fff9f7;--ink:#2a1620;--muted:#6c5860;--accent:#ee2a7b;--accent-hi:#ff6aa6;--soft:#ffd8e7;--deep:#3a1a2a;--deep-ink:#fbeef2;--line:rgba(42,22,32,.13)}
-:root[data-tema="azul"]{--bg:#f1f5fa;--paper:#fafcff;--ink:#16294a;--muted:#566377;--accent:#2d5f9a;--accent-hi:#86b4e8;--soft:#d9e6f4;--deep:#1d3a63;--deep-ink:#e9f0f8;--line:rgba(22,41,74,.13)}
 
 *{box-sizing:border-box}
 html{overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:84px}
@@ -120,12 +120,16 @@ section{padding-block:clamp(56px,9vw,112px)}
 .price-bar{display:flex;flex-wrap:wrap;gap:14px 36px;align-items:baseline;padding:18px 24px;border-radius:var(--r-md);background:var(--soft);margin-bottom:22px}
 .price-bar b{font-family:var(--f-display);font-size:30px;font-weight:600;font-variant-numeric:tabular-nums}
 .price-bar span{font-size:13px;color:var(--muted);display:block;letter-spacing:.04em}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:18px}
 .card{position:relative;text-align:left;border:0;padding:0;background:var(--paper);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;display:flex;flex-direction:column;box-shadow:0 1px 0 var(--line),0 18px 40px -26px rgba(38,16,28,.45);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
 .card:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 28px 50px -24px rgba(38,16,28,.5)}
 .card .ph{aspect-ratio:1/1.05;overflow:hidden;background:var(--soft)}
 .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .card:hover .ph img{transform:scale(1.07)}
+.ph.novo,.ph0{display:grid;place-content:center;justify-items:center;text-align:center;gap:10px;background:linear-gradient(160deg,var(--soft),var(--paper))}
+.ph.novo span,.ph0 span{background:var(--accent);color:var(--accent-ink);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.ph.novo b,.ph0 b{font-family:var(--f-display);font-style:italic;font-weight:600;font-size:34px;color:var(--accent)}
+.ph0{min-height:260px}
 .card .bd{padding:18px 20px 22px;display:grid;gap:6px}
 .card h3{font-size:23px}
 .card p{font-size:14px;color:var(--muted);line-height:1.5}
@@ -435,7 +439,7 @@ footer a{text-decoration:none}
 </div></footer>
 
 <a class="wa" data-wa="Olá, Pri! Vim pelo site e quero agendar." href="#" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.2 1.3 2.5 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4Z"/></svg></a>
-<div class="theme" aria-label="Paleta da prévia"><span>Paleta</span><button type="button" data-t="turquesa" style="background:#17a2b0" aria-label="Turquesa" aria-pressed="true"></button><button type="button" data-t="rosa" style="background:#ee2a7b" aria-label="Rosa" aria-pressed="false"></button><button type="button" data-t="azul" style="background:#2d5f9a" aria-label="Azul" aria-pressed="false"></button></div>
+<div class="theme" aria-label="Paleta da prévia"><span>Paleta</span><button type="button" data-t="azul" style="background:#2d6aa8" aria-label="Azul" aria-pressed="true"></button><button type="button" data-t="turquesa" style="background:#17a2b0" aria-label="Turquesa" aria-pressed="false"></button><button type="button" data-t="rosa" style="background:#ee2a7b" aria-label="Rosa" aria-pressed="false"></button></div>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Detalhes do serviço"><button class="x" id="mx" aria-label="Fechar" type="button">×</button><div class="sheet" id="sheet"></div></div>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada"><button class="x" id="lx" type="button" aria-label="Fechar">×</button><button class="n p" id="lp" type="button" aria-label="Foto anterior">‹</button><img id="li" alt=""><button class="n nx" id="ln" type="button" aria-label="Próxima foto">›</button><div class="cap" id="lc"></div></div>
@@ -459,6 +463,8 @@ var GROUPS = {
     {id:"sirena",n:"Sirena / Fox Light",d:"Alongado sutil em degradê.",img:"g-sirena"},
     {id:"wispy",n:"Efeito Wispy",d:"Preenchimento com spikes.",img:"g-wispy"},
     {id:"fox",n:"Fox",d:"Olhar de raposa, delineado. Também disponível no marrom.",img:"g-fox"},
+    {id:"cisne",n:"Efeito Cisne",d:"Novo efeito. Chame no WhatsApp para saber como fica no seu olhar.",img:null},
+    {id:"anime",n:"Efeito Anime",d:"Novo efeito. Chame no WhatsApp para saber como fica no seu olhar.",img:null},
     {id:"led",n:"Cílios no LED UV",d:"Durabilidade prolongada, sem manutenção.",img:"g-led",noman:true}]},
   sobr:{label:"Sobrancelhas",list:[["Design simples",25],["Somente henna",25],["Design + henna",50],["Protocolo de reconstrução",80],["Brow lamination",130]],img:"sobrancelha"},
   outros:{label:"Outros serviços",list:[["Cílios inferiores",100],["Remoção",50],["Teste alérgico",40],["Buço",15]],img:"cliente2"}
@@ -481,7 +487,7 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp
 var ALL={};Object.keys(GROUPS).forEach(function(k){(GROUPS[k].items||[]).forEach(function(i){i.g=GROUPS[k];ALL[i.id]=i})});
 
 /* ===== marquee ===== */
-(function(){var w=["Volume Bella","Aurora","Cacau","Luxo","Glamour","Fox","Wispy","Sirena","LED UV","Brow lamination","Efeito boneca","Efeito esquilo","Efeito gatinho"];
+(function(){var w=["Efeito Cisne","Efeito Anime","Volume Bella","Aurora","Cacau","Luxo","Glamour","Fox","Wispy","Sirena","LED UV","Brow lamination","Efeito boneca","Efeito esquilo","Efeito gatinho"];
 var h=w.map(function(x){return "<span>"+x+"</span>"}).join("");$("#marq").innerHTML=h+h})();
 
 /* ===== serviços ===== */
@@ -490,7 +496,7 @@ function renderTabs(){
   $("#tabs").innerHTML=Object.keys(GROUPS).map(function(k){return '<button class="tab" role="tab" data-k="'+k+'" aria-selected="'+(k===cur)+'">'+GROUPS[k].label+'</button>'}).join("");
   $$(".tab").forEach(function(b){b.onclick=function(){cur=b.dataset.k;renderTabs();renderSvc()}});
 }
-function card(i){return '<button class="card" data-id="'+i.id+'"><div class="ph"><img src="img/'+i.img+'.jpg" alt="" style="object-position:'+(i.pos||"50% 50%")+'"></div><div class="bd"><h3>'+esc(i.n)+'</h3><p>'+esc(i.d)+'</p><span class="more">Ver detalhes →</span></div></button>'}
+function card(i){var ph=i.img?'<div class="ph"><img src="img/'+i.img+'.jpg" alt="" style="object-position:'+(i.pos||"50% 50%")+'"></div>':'<div class="ph novo"><span>Novo</span><b>'+esc(i.n.replace("Efeito ",""))+'</b></div>';return '<button class="card" data-id="'+i.id+'">'+ph+'<div class="bd"><h3>'+esc(i.n)+'</h3><p>'+esc(i.d)+'</p><span class="more">Ver detalhes →</span></div></button>'}
 function renderSvc(){
   var g=GROUPS[cur],h="";
   if(g.items){
@@ -507,7 +513,7 @@ function openSheet(i){
   var pr;
   if(i.price!=null)pr='<div><b>'+brl(i.price)+'</b><span>Valor</span></div>';
   else{pr='<div><b>'+brl(i.g.apl)+'</b><span>Aplicação</span></div>'+(i.noman?'<div><b style="font-size:20px;padding-top:6px">Sem manutenção</b><span>Durabilidade prolongada</span></div>':'<div><b>'+brl(i.g.man)+'</b><span>Manutenção</span></div>')}
-  $("#sheet").innerHTML='<img src="img/'+i.img+'.jpg" alt="'+esc(i.n)+'" style="object-position:'+(i.pos||"50% 50%")+'"><div class="tx"><div class="eyebrow">'+(i.g?esc(i.g.label):"Serviço")+'</div><h3>'+esc(i.n)+'</h3><p class="lead">'+esc(i.d)+'</p><div class="pr">'+pr+'</div><p class="fine" style="margin:0">'+(i.price!=null?"Valores sujeitos a alteração no pagamento via cartão.":"Manutenção somente dentro de 20 dias com ao menos 50% dos fios. Valores sujeitos a alteração no pagamento via cartão.")+'</p><a class="btn" id="sheetWa" href="'+wa("Olá, Pri! Quero agendar: "+i.n+".")+'" target="_blank" rel="noopener">Agendar '+esc(i.n)+'</a></div>';
+  $("#sheet").innerHTML=(i.img?'<img src="img/'+i.img+'.jpg" alt="'+esc(i.n)+'" style="object-position:'+(i.pos||"50% 50%")+'">':'<div class="ph0"><span>Novo</span><b>'+esc(i.n.replace("Efeito ",""))+'</b></div>')+'<div class="tx"><div class="eyebrow">'+(i.g?esc(i.g.label):"Serviço")+'</div><h3>'+esc(i.n)+'</h3><p class="lead">'+esc(i.d)+'</p><div class="pr">'+pr+'</div><p class="fine" style="margin:0">'+(i.price!=null?"Valores sujeitos a alteração no pagamento via cartão.":"Manutenção somente dentro de 20 dias com ao menos 50% dos fios. Valores sujeitos a alteração no pagamento via cartão.")+'</p><a class="btn" id="sheetWa" href="'+wa("Olá, Pri! Quero agendar: "+i.n+".")+'" target="_blank" rel="noopener">Agendar '+esc(i.n)+'</a></div>';
   $("#modal").classList.add("open");document.body.style.overflow="hidden";$("#mx").focus();
 }
 function closeSheet(){$("#modal").classList.remove("open");document.body.style.overflow=""}
@@ -600,7 +606,7 @@ document.addEventListener("keydown",function(e){
 $("#copyAddr").onclick=function(){var t="R. Antônio Gomes do Amaral, 334, Araçatuba - SP";
   var ok=function(){toast("Endereço copiado")},no=function(){toast(t)};
   try{navigator.clipboard.writeText(t).then(ok,no)}catch(e){no()}};
-function setTema(t){if(t==="turquesa")document.documentElement.removeAttribute("data-tema");else document.documentElement.setAttribute("data-tema",t);
+function setTema(t){if(t==="azul")document.documentElement.removeAttribute("data-tema");else document.documentElement.setAttribute("data-tema",t);
   $$(".theme button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.t===t)});try{localStorage.setItem("pri-tema",t)}catch(e){}}
 $$(".theme button").forEach(function(b){b.onclick=function(){setTema(b.dataset.t)}});
 
