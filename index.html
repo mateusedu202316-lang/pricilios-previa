@@ -11,15 +11,15 @@
 <style>
 /* Layout: editorial studio page. Arch-shaped photos, one giant 1h30 ring, sticky pill nav, dark plum Academy band. */
 :root{
-  --bg:#f1f5fa; --paper:#fafcff; --ink:#1d3a5f; --muted:#52657e; --accent:#2d6aa8; --accent-ink:#ffffff; --accent-hi:#8dbcf0; --soft:#d9e6f4; --deep:#294d7d; --deep-ink:#eef4fb;
-  --line:rgba(29,58,95,.14);
+  --bg:#f0f9fd; --paper:#fafeff; --ink:#1f4a68; --muted:#4f6b80; --accent:#1e8fd0; --accent-ink:#ffffff; --accent-hi:#8ce1fb; --sky:#8ce1fb; --soft:#cdeefb; --deep:#2b6489; --deep-ink:#eefaff;
+  --line:rgba(31,74,104,.14);
   --f-display:"Playfair Display",Georgia,"Times New Roman",serif;
   --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --r-lg:28px; --r-md:18px;
   color-scheme:light;
 }
-:root[data-tema="turquesa"]{--bg:#f2f9f9;--paper:#fafefe;--ink:#1d4448;--muted:#527073;--accent:#17a2b0;--accent-hi:#6fdbe5;--soft:#cdeef1;--deep:#235a60;--deep-ink:#effafb;--line:rgba(29,68,72,.14)}
-:root[data-tema="rosa"]{--bg:#fcf1ee;--paper:#fff9f7;--ink:#2a1620;--muted:#6c5860;--accent:#ee2a7b;--accent-hi:#ff6aa6;--soft:#ffd8e7;--deep:#3a1a2a;--deep-ink:#fbeef2;--line:rgba(42,22,32,.13)}
+:root[data-tema="turquesa"]{--bg:#f2f9f9;--paper:#fafefe;--ink:#1d4448;--muted:#527073;--accent:#17a2b0;--accent-hi:#6fdbe5;--sky:#7fd8e0;--soft:#cdeef1;--deep:#235a60;--deep-ink:#effafb;--line:rgba(29,68,72,.14)}
+:root[data-tema="rosa"]{--bg:#fcf1ee;--paper:#fff9f7;--ink:#2a1620;--muted:#6c5860;--accent:#ee2a7b;--accent-hi:#ff6aa6;--sky:#ff8fbd;--soft:#ffd8e7;--deep:#3a1a2a;--deep-ink:#fbeef2;--line:rgba(42,22,32,.13)}
 
 *{box-sizing:border-box}
 html{overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:84px}
@@ -75,12 +75,12 @@ section{padding-block:clamp(56px,9vw,112px)}
 .arch img{width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
 .arch-ring{position:absolute;inset:-14px;border:1.5px solid var(--accent);border-radius:999px 999px 36px 36px;opacity:.5;pointer-events:none}
 .chip{position:absolute;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 30px -14px rgba(0,0,0,.35);border-radius:999px;padding:9px 16px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;animation:float 6s ease-in-out infinite}
-.chip i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--sky);box-shadow:0 0 0 3px var(--soft)}
 .chip.a{left:-4%;top:18%}
 .chip.b{right:-3%;top:52%;animation-delay:-2s}
 .chip.c{left:6%;bottom:6%;animation-delay:-4s}
 @keyframes float{50%{transform:translateY(-8px)}}
-.seal{position:absolute;right:-6%;top:-5%;width:128px;height:128px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;z-index:2}
+.seal{position:absolute;right:-6%;top:-5%;width:128px;height:128px;border-radius:50%;background:var(--sky);color:var(--ink);display:grid;place-items:center;z-index:2}
 .seal svg{position:absolute;inset:0;animation:spin 22s linear infinite}
 .seal span{font-family:var(--f-display);font-size:34px;font-style:italic}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -439,7 +439,7 @@ footer a{text-decoration:none}
 </div></footer>
 
 <a class="wa" data-wa="Olá, Pri! Vim pelo site e quero agendar." href="#" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.2 1.3 2.5 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4Z"/></svg></a>
-<div class="theme" aria-label="Paleta da prévia"><span>Paleta</span><button type="button" data-t="azul" style="background:#2d6aa8" aria-label="Azul" aria-pressed="true"></button><button type="button" data-t="turquesa" style="background:#17a2b0" aria-label="Turquesa" aria-pressed="false"></button><button type="button" data-t="rosa" style="background:#ee2a7b" aria-label="Rosa" aria-pressed="false"></button></div>
+<div class="theme" aria-label="Paleta da prévia"><span>Paleta</span><button type="button" data-t="azul" style="background:#8ce1fb" aria-label="Azul" aria-pressed="true"></button><button type="button" data-t="turquesa" style="background:#17a2b0" aria-label="Turquesa" aria-pressed="false"></button><button type="button" data-t="rosa" style="background:#ee2a7b" aria-label="Rosa" aria-pressed="false"></button></div>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Detalhes do serviço"><button class="x" id="mx" aria-label="Fechar" type="button">×</button><div class="sheet" id="sheet"></div></div>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada"><button class="x" id="lx" type="button" aria-label="Fechar">×</button><button class="n p" id="lp" type="button" aria-label="Foto anterior">‹</button><img id="li" alt=""><button class="n nx" id="ln" type="button" aria-label="Próxima foto">›</button><div class="cap" id="lc"></div></div>
