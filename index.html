@@ -11,16 +11,15 @@
 <style>
 /* Layout: editorial studio page. Arch-shaped photos, one giant 1h30 ring, sticky pill nav, dark plum Academy band. */
 :root{
-  --bg:#fcf1ee; --paper:#fff9f7; --ink:#1b1015; --muted:#6c5860;
-  --accent:#ee2a7b; --accent-ink:#ffffff; --soft:#ffd8e7; --deep:#26101c; --deep-ink:#fbeef2;
-  --line:rgba(27,16,21,.12);
+  --bg:#f2f9f9; --paper:#fafefe; --ink:#1d4448; --muted:#527073; --accent:#17a2b0; --accent-ink:#ffffff; --accent-hi:#6fdbe5; --soft:#cdeef1; --deep:#235a60; --deep-ink:#effafb;
+  --line:rgba(29,68,72,.14);
   --f-display:"Playfair Display",Georgia,"Times New Roman",serif;
   --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --r-lg:28px; --r-md:18px;
   color-scheme:light;
 }
-:root[data-tema="azul"]{--bg:#f1f5fa;--paper:#fafcff;--ink:#0d1a2b;--muted:#566377;--accent:#2d5f9a;--soft:#d9e6f4;--deep:#0d1a2b;--deep-ink:#e9f0f8;--line:rgba(13,26,43,.12)}
-:root[data-tema="turquesa"]{--bg:#f2f9f9;--paper:#fafefe;--ink:#0b2427;--muted:#4f6a6d;--accent:#17a2b0;--soft:#c9eef1;--deep:#0b2427;--deep-ink:#e6f6f7;--line:rgba(11,36,39,.12)}
+:root[data-tema="rosa"]{--bg:#fcf1ee;--paper:#fff9f7;--ink:#2a1620;--muted:#6c5860;--accent:#ee2a7b;--accent-hi:#ff6aa6;--soft:#ffd8e7;--deep:#3a1a2a;--deep-ink:#fbeef2;--line:rgba(42,22,32,.13)}
+:root[data-tema="azul"]{--bg:#f1f5fa;--paper:#fafcff;--ink:#16294a;--muted:#566377;--accent:#2d5f9a;--accent-hi:#86b4e8;--soft:#d9e6f4;--deep:#1d3a63;--deep-ink:#e9f0f8;--line:rgba(22,41,74,.13)}
 
 *{box-sizing:border-box}
 html{overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:84px}
@@ -159,6 +158,7 @@ section{padding-block:clamp(56px,9vw,112px)}
 
 /* quiz */
 .quiz{background:var(--deep);color:var(--deep-ink);border-radius:clamp(24px,4vw,44px);padding:clamp(24px,5vw,64px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,64px);align-items:start}
+.quiz h2 em,.quiz .res h3 em,.acad h2 em,footer .big em{color:var(--accent-hi)}
 .quiz h2{font-size:clamp(34px,5vw,56px)}
 .quiz .lead{color:color-mix(in srgb,var(--deep-ink) 70%,transparent);margin-top:16px}
 .q-prog{display:flex;gap:6px;margin-bottom:22px}
@@ -172,7 +172,7 @@ section{padding-block:clamp(56px,9vw,112px)}
 .res{display:grid;grid-template-columns:140px minmax(0,1fr);gap:22px;align-items:center}
 .res img{width:140px;height:170px;object-fit:cover;border-radius:999px 999px 18px 18px}
 .res h3{font-size:34px;margin-bottom:6px}
-.res h3 em{color:var(--accent)}
+.res h3 em{color:var(--accent-hi)}
 .res p{opacity:.8;font-size:15px;margin-bottom:6px}
 .res .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
 .btn.light{background:rgba(255,255,255,.1);color:var(--deep-ink);box-shadow:none}
@@ -211,9 +211,9 @@ section{padding-block:clamp(56px,9vw,112px)}
 @media(max-width:860px){.calc{grid-template-columns:1fr}.total{position:static}}
 
 /* gallery */
-.grid{columns:4 220px;column-gap:14px}
-.grid button{display:block;width:100%;margin:0 0 14px;padding:0;border:0;background:var(--soft);border-radius:var(--r-md);overflow:hidden;cursor:zoom-in;break-inside:avoid}
-.grid img{width:100%;height:auto;transition:transform .5s,filter .3s}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1.6vw,18px)}
+.grid button{display:block;width:100%;padding:0;border:0;background:var(--soft);border-radius:var(--r-md);overflow:hidden;cursor:zoom-in;aspect-ratio:4/5}
+.grid img{width:100%;height:100%;object-fit:cover;transition:transform .5s,filter .3s}
 .grid button:hover img{transform:scale(1.05)}
 .lb{position:fixed;inset:0;z-index:95;background:rgba(14,6,10,.94);display:none;align-items:center;justify-content:center;padding:16px}
 .lb.open{display:flex}
@@ -286,6 +286,7 @@ footer a{text-decoration:none}
   <a class="logo" href="#topo" aria-label="Pri Cílios, início"><span>Pri</span><i>Cílios</i></a>
   <ul id="menu">
     <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#sobre">Sobre</a></li>
     <li><a href="#efeito">Seu efeito</a></li>
     <li><a href="#mapeamento">Mapeamento</a></li>
     <li><a href="#orcamento">Orçamento</a></li>
@@ -308,7 +309,7 @@ footer a{text-decoration:none}
     </div>
     <div class="hero-meta">
       <div><b>1h30</b>do primeiro fio ao espelho</div>
-      <div><b>9</b>técnicas para o seu olhar</div>
+      <div><b>12</b>técnicas para o seu olhar</div>
       <div><b>20 dias</b>para a manutenção</div>
     </div>
   </div>
@@ -345,8 +346,23 @@ footer a{text-decoration:none}
   <p class="fine">Valores sujeitos a alteração no pagamento via cartão. Manutenção somente dentro de 20 dias com ao menos 50% dos fios.</p>
 </div></section>
 
+<section id="sobre"><div class="w about">
+  <div class="pic rv"><img src="img/pri.jpg" alt="Pri, lash designer em Araçatuba" width="846" height="792"></div>
+  <div class="rv">
+    <div class="eyebrow">Quem cuida do seu olhar</div>
+    <h2 class="h2" style="margin-block:16px 12px">Prazer, eu sou a <em>Pri.</em></h2>
+    <p class="lead">Sou lash designer em Araçatuba e referência em cílios naturais e marrons. Meu objetivo é um tipo de beleza que ninguém percebe que é extensão: só percebe que você está linda.</p>
+    <blockquote>Cílios naturais, marrons e prontos em 1h30.</blockquote>
+    <div class="rules">
+      <div class="rule"><b>Venha sem rímel</b>Sem maquiagem na região dos olhos. Se usa lentes de contato, retire antes.</div>
+      <div class="rule"><b>Atendimento só seu</b>Por gentileza, não traga acompanhantes ou crianças.</div>
+      <div class="rule"><b>Faltas</b>Em caso de não comparecimento, cobramos o valor do procedimento para um novo agendamento. Em caso de falta o valor não é restituído.</div>
+    </div>
+  </div>
+</div></section>
+
 <section id="efeito"><div class="w"><div class="quiz rv">
-  <div><div class="eyebrow" style="color:var(--accent)">Descubra em 3 perguntas</div><h2 style="margin-top:16px">Qual cílios é a sua <em>cara?</em></h2><p class="lead">Responda rápido e veja a técnica e o mapeamento que mais combinam com você. A Pri confirma tudo na avaliação.</p></div>
+  <div><div class="eyebrow" style="color:var(--accent-hi)">Descubra em 3 perguntas</div><h2 style="margin-top:16px">Qual cílios é a sua <em>cara?</em></h2><p class="lead">Responda rápido e veja a técnica e o mapeamento que mais combinam com você. A Pri confirma tudo na avaliação.</p></div>
   <div id="quiz" aria-live="polite"></div>
 </div></div></section>
 
@@ -385,24 +401,10 @@ footer a{text-decoration:none}
   <div class="grid" id="gal"></div>
 </div></section>
 
-<section id="sobre"><div class="w about">
-  <div class="pic rv"><img src="img/pri.jpg" alt="Pri, lash designer em Araçatuba" width="846" height="792"></div>
-  <div class="rv">
-    <div class="eyebrow">Quem cuida do seu olhar</div>
-    <h2 class="h2" style="margin-block:16px 12px">Prazer, eu sou a <em>Pri.</em></h2>
-    <p class="lead">Sou lash designer em Araçatuba e referência em cílios naturais e marrons. Meu objetivo é um tipo de beleza que ninguém percebe que é extensão: só percebe que você está linda.</p>
-    <blockquote>Cílios naturais, marrons e prontos em 1h30.</blockquote>
-    <div class="rules">
-      <div class="rule"><b>Venha sem rímel</b>Sem maquiagem na região dos olhos. Se usa lentes de contato, retire antes.</div>
-      <div class="rule"><b>Atendimento só seu</b>Por gentileza, não traga acompanhantes ou crianças.</div>
-      <div class="rule"><b>Faltas</b>Em caso de não comparecimento, cobramos o valor do procedimento para um novo agendamento. Em caso de falta o valor não é restituído.</div>
-    </div>
-  </div>
-</div></section>
 
 <section id="academy"><div class="w"><div class="acad rv">
   <div class="tx">
-    <div class="eyebrow" style="color:var(--accent)">Lash Academy</div>
+    <div class="eyebrow" style="color:var(--accent-hi)">Lash Academy</div>
     <h2>Aprenda a técnica de quem é <em>referência.</em></h2>
     <p class="lead">Transforme cílios em renda. Fature +R$100 a cada 1h30 atendendo com a técnica que a Pri ensina.</p>
     <ul><li>Curso presencial no studio, com acompanhamento</li><li>Mentoria on-line, do zero à agenda cheia</li><li>Certificado de conclusão</li></ul>
@@ -433,7 +435,7 @@ footer a{text-decoration:none}
 </div></footer>
 
 <a class="wa" data-wa="Olá, Pri! Vim pelo site e quero agendar." href="#" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.2 1.3 2.5 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4Z"/></svg></a>
-<div class="theme" aria-label="Paleta da prévia"><span>Paleta</span><button type="button" data-t="rosa" style="background:#ee2a7b" aria-label="Rosa" aria-pressed="true"></button><button type="button" data-t="azul" style="background:#2d5f9a" aria-label="Azul" aria-pressed="false"></button><button type="button" data-t="turquesa" style="background:#17a2b0" aria-label="Turquesa" aria-pressed="false"></button></div>
+<div class="theme" aria-label="Paleta da prévia"><span>Paleta</span><button type="button" data-t="turquesa" style="background:#17a2b0" aria-label="Turquesa" aria-pressed="true"></button><button type="button" data-t="rosa" style="background:#ee2a7b" aria-label="Rosa" aria-pressed="false"></button><button type="button" data-t="azul" style="background:#2d5f9a" aria-label="Azul" aria-pressed="false"></button></div>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Detalhes do serviço"><button class="x" id="mx" aria-label="Fechar" type="button">×</button><div class="sheet" id="sheet"></div></div>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada"><button class="x" id="lx" type="button" aria-label="Fechar">×</button><button class="n p" id="lp" type="button" aria-label="Foto anterior">‹</button><img id="li" alt=""><button class="n nx" id="ln" type="button" aria-label="Próxima foto">›</button><div class="cap" id="lc"></div></div>
@@ -466,7 +468,7 @@ var MAPS = [
   {id:"esquilo",n:"Efeito esquilo",img:"map-esquilo",d:"O mais procurado por quem quer um olhar sensual e expressivo. Fios maiores no ponto alto da sobrancelha, para um olhar harmônico. Indicado para todos os tipos de olhos e mantém o formato do olho.",f:function(t){return 16+36*Math.exp(-Math.pow((t-.64)/.2,2))}},
   {id:"gatinho",n:"Efeito gatinho",img:"map-gatinho",d:"Para quem quer olhos mais delineados e expressivos. Fios maiores no canto externo e menores, de forma gradual, até o canto interno. Não é o mais indicado para olhos caídos.",f:function(t){return 13+42*Math.pow(t,1.7)}}
 ];
-var GAL = [["olho-natural","Cílios naturais"],["cliente1","Volume Luxo"],["glamour","Volume Glamour"],["cliente2","Design de sobrancelha"],["aurora","Volume Aurora"],["g-led","Cílios no LED UV"],["cliente3","Resultado natural"],["sobrancelha","Sobrancelha com henna"],["luxo","Volume Luxo"],["fox-liner","Fox"],["bella","Volume Bella"],["cliente4","Resultado natural"],["g-wispy","Efeito Wispy"],["cacau","Volume Cacau"]];
+var GAL = [["olho-natural","Cílios naturais"],["cliente1","Volume Luxo"],["glamour","Volume Glamour"],["aurora","Volume Aurora"],["bella","Volume Bella"],["cliente2","Design de sobrancelha"]];
 var EXTRAS = [["Cílios inferiores",100],["Remoção",50],["Teste alérgico",40],["Design simples",25],["Design + henna",50],["Brow lamination",130],["Buço",15]];
 
 /* ===== util ===== */
@@ -530,7 +532,7 @@ function renderQuiz(){
     if(cor==="marrom"&&(t==="bella"||t==="aurora"))t="cacau";
     var it=ALL[t],mp=MAPS.filter(function(m){return m.id===map})[0];
     var note=(t==="fox"&&cor==="marrom")?" Disponível no marrom.":"";
-    box.innerHTML='<div class="q-prog">'+QZ.map(function(){return '<i class="on"></i>'}).join("")+'</div><div class="res"><img src="img/'+it.img+'.jpg" alt="" style="object-position:'+(it.pos||"50% 50%")+'"><div><div class="eyebrow" style="color:var(--accent)">Combina com você</div><h3>'+esc(it.n)+' <em>+ '+mp.n.toLowerCase()+'</em></h3><p>'+esc(it.d)+note+'</p><p>Aplicação '+brl(it.g.apl)+(it.noman?' · sem manutenção':' · manutenção '+brl(it.g.man))+'</p><div class="btns"><a class="btn" href="'+wa("Olá, Pri! Fiz o quiz no site e combinei com "+it.n+" no "+mp.n.toLowerCase()+". Quero agendar.")+'" target="_blank" rel="noopener">Agendar esse look</a><button class="btn light" id="qr" type="button">Refazer</button></div></div></div>';
+    box.innerHTML='<div class="q-prog">'+QZ.map(function(){return '<i class="on"></i>'}).join("")+'</div><div class="res"><img src="img/'+it.img+'.jpg" alt="" style="object-position:'+(it.pos||"50% 50%")+'"><div><div class="eyebrow" style="color:var(--accent-hi)">Combina com você</div><h3>'+esc(it.n)+' <em>+ '+mp.n.toLowerCase()+'</em></h3><p>'+esc(it.d)+note+'</p><p>Aplicação '+brl(it.g.apl)+(it.noman?' · sem manutenção':' · manutenção '+brl(it.g.man))+'</p><div class="btns"><a class="btn" href="'+wa("Olá, Pri! Fiz o quiz no site e combinei com "+it.n+" no "+mp.n.toLowerCase()+". Quero agendar.")+'" target="_blank" rel="noopener">Agendar esse look</a><button class="btn light" id="qr" type="button">Refazer</button></div></div></div>';
     $("#qr").onclick=function(){qs=0;qa=[];renderQuiz()};
     if(map==="gatinho")toast("Lembrete: o gatinho não é o mais indicado para olhos caídos.");
   }
@@ -598,10 +600,10 @@ document.addEventListener("keydown",function(e){
 $("#copyAddr").onclick=function(){var t="R. Antônio Gomes do Amaral, 334, Araçatuba - SP";
   var ok=function(){toast("Endereço copiado")},no=function(){toast(t)};
   try{navigator.clipboard.writeText(t).then(ok,no)}catch(e){no()}};
-function setTema(t){document.documentElement.setAttribute("data-tema",t==="rosa"?"":t);if(t==="rosa")document.documentElement.removeAttribute("data-tema");
+function setTema(t){if(t==="turquesa")document.documentElement.removeAttribute("data-tema");else document.documentElement.setAttribute("data-tema",t);
   $$(".theme button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.t===t)});try{localStorage.setItem("pri-tema",t)}catch(e){}}
 $$(".theme button").forEach(function(b){b.onclick=function(){setTema(b.dataset.t)}});
-try{var sv=localStorage.getItem("pri-tema");if(sv)setTema(sv)}catch(e){}
+
 var qsT=(location.search.match(/tema=(\w+)/)||[])[1];if(qsT)setTema(qsT);
 bindWa(document);
 
