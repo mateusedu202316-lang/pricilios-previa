@@ -7,13 +7,14 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap">
 <style>
 /* Layout: editorial studio page. Arch-shaped photos, one giant 1h30 ring, sticky pill nav, dark plum Academy band. */
 :root{
   --bg:#f0f9fd; --paper:#fafeff; --ink:#1f4a68; --muted:#4f6b80; --accent:#1e8fd0; --accent-ink:#ffffff; --accent-hi:#8ce1fb; --sky:#8ce1fb; --soft:#cdeefb; --deep:#2b6489; --deep-ink:#eefaff;
   --line:rgba(31,74,104,.14);
   --f-display:"Playfair Display",Georgia,"Times New Roman",serif;
+  --f-hand:"Dancing Script","Segoe Script","Brush Script MT",cursive;
   --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --r-lg:28px; --r-md:18px;
   color-scheme:light;
@@ -29,7 +30,8 @@ img{display:block;max-width:100%}
 a{color:inherit}
 button{font:inherit;color:inherit}
 h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.01em}
-h1 em,h2 em,h3 em{font-style:italic;color:var(--accent);font-weight:600}
+h1 em,h2 em,h3 em,.hero-tag em,footer .big em{font-family:var(--f-hand);font-style:normal;font-weight:700;color:var(--accent);font-size:1.14em;letter-spacing:0}
+.hl{background:none;color:var(--accent);font-family:var(--f-hand);font-weight:700;font-size:1.22em;line-height:1}
 p{margin:0}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
 .w{width:100%;max-width:1200px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -41,12 +43,31 @@ section{padding-block:clamp(56px,9vw,112px)}
 .sec-head{display:grid;gap:16px;margin-bottom:clamp(28px,4vw,48px)}
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;text-decoration:none;font-weight:700;font-size:15px;padding:14px 22px;border-radius:999px;background:var(--accent);color:var(--accent-ink);transition:transform .2s,box-shadow .2s;box-shadow:0 10px 24px -10px var(--accent)}
-.btn:hover{transform:translateY(-2px);box-shadow:0 16px 28px -12px var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;text-decoration:none;font-weight:700;font-size:15px;padding:14px 22px;border-radius:999px;background:var(--accent);color:var(--accent-ink);transition:transform .2s,box-shadow .2s;box-shadow:4px 5px 0 var(--sky)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 7px 0 var(--sky)}
 .btn.ghost{background:transparent;color:var(--ink);box-shadow:none;border:1.5px solid var(--line)}
 .btn.ghost:hover{border-color:var(--ink)}
 .btn.dark{background:var(--ink);color:var(--bg);box-shadow:none}
 .btn svg{width:18px;height:18px;flex:none}
+
+
+/* entrada */
+.intro{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:var(--deep);color:var(--sky);transition:transform 1s cubic-bezier(.2,.8,.2,1),border-radius 1s cubic-bezier(.2,.8,.2,1);animation:introFallback 0s 4.5s forwards}
+.intro__inner{display:grid;justify-items:center;gap:10px;padding:16px}
+.intro__logo{font-family:var(--f-display);font-size:clamp(56px,11vw,112px);line-height:1;color:var(--deep-ink);animation:introPop .7s cubic-bezier(.2,.8,.2,1) both;white-space:nowrap}
+.intro__logo b{font-weight:600}
+.intro__logo i{color:var(--sky);font-weight:600}
+.intro .lash{width:clamp(120px,20vw,190px);overflow:visible}
+.intro__sub{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--deep-ink);opacity:.75;animation:introPop .8s .5s cubic-bezier(.2,.8,.2,1) both}
+.intro.is-done{transform:translateY(-100%);border-radius:0 0 50% 50% / 0 0 18vh 18vh}
+.lash--draw .lash__lid,.lash--draw .lash__hair{stroke-dasharray:1;stroke-dashoffset:1}
+.lash--draw.is-drawn .lash__lid{stroke-dashoffset:0;transition:stroke-dashoffset 1s cubic-bezier(.2,.8,.2,1)}
+.lash--draw.is-drawn .lash__hair{stroke-dashoffset:0;transition:stroke-dashoffset .4s cubic-bezier(.2,.8,.2,1)}
+.lash--draw.is-drawn .lash__hair:nth-of-type(2){transition-delay:.55s}.lash--draw.is-drawn .lash__hair:nth-of-type(3){transition-delay:.62s}.lash--draw.is-drawn .lash__hair:nth-of-type(4){transition-delay:.69s}.lash--draw.is-drawn .lash__hair:nth-of-type(5){transition-delay:.76s}.lash--draw.is-drawn .lash__hair:nth-of-type(6){transition-delay:.83s}.lash--draw.is-drawn .lash__hair:nth-of-type(7){transition-delay:.9s}.lash--draw.is-drawn .lash__hair:nth-of-type(8){transition-delay:.97s}
+@keyframes introPop{from{opacity:0;transform:translateY(30px) scale(.92)}}
+@keyframes introFallback{to{visibility:hidden;pointer-events:none}}
+.hero .hero-grid>div:first-child{animation:heroIn 1s 1.2s cubic-bezier(.2,.8,.2,1) backwards}
+@keyframes heroIn{from{transform:translateY(34px)}}
 
 /* preview band + nav */
 .preview{background:var(--deep);color:var(--deep-ink);font-size:12px;letter-spacing:.06em;text-align:center;padding:8px 16px;position:relative;z-index:61}
@@ -63,8 +84,10 @@ section{padding-block:clamp(56px,9vw,112px)}
 /* hero */
 .hero{padding-block:clamp(24px,4vw,56px) clamp(48px,7vw,96px);overflow:clip}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,72px);align-items:center}
-.hero h1{font-size:clamp(46px,8.2vw,108px);margin-block:18px 22px}
-.hero h1 .l{display:block}
+.wordmark{margin:14px 0 0;line-height:.95;font-size:clamp(60px,min(8.6vw,13.5vw),122px);font-weight:600;white-space:nowrap;text-shadow:.045em .045em 0 var(--sky)}
+.wordmark em{font-size:1em;font-weight:700}
+.hero .lash{display:block;color:var(--accent);width:clamp(120px,16vw,190px);margin:6px 0 14px;overflow:visible}
+.hero-tag{font-family:var(--f-display);font-size:clamp(24px,3vw,34px);line-height:1.1;margin-bottom:14px;font-weight:600}
 .hero .lead{margin-bottom:30px}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px}
 .hero-meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}
@@ -74,11 +97,11 @@ section{padding-block:clamp(56px,9vw,112px)}
 .arch{position:absolute;inset:0;border-radius:999px 999px var(--r-lg) var(--r-lg);overflow:hidden;background:var(--soft);transform:translate(var(--px,0),var(--py,0));transition:transform .25s ease-out}
 .arch img{width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
 .arch-ring{position:absolute;inset:-14px;border:1.5px solid var(--accent);border-radius:999px 999px 36px 36px;opacity:.5;pointer-events:none}
-.chip{position:absolute;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 30px -14px rgba(0,0,0,.35);border-radius:999px;padding:9px 16px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;animation:float 6s ease-in-out infinite}
-.chip i{width:8px;height:8px;border-radius:50%;background:var(--sky);box-shadow:0 0 0 3px var(--soft)}
-.chip.a{left:-4%;top:18%}
-.chip.b{right:-3%;top:52%;animation-delay:-2s}
-.chip.c{left:6%;bottom:6%;animation-delay:-4s}
+.chip{position:absolute;background:var(--sky);color:var(--ink);border-radius:10px;padding:.5em .9em .4em;font-family:var(--f-hand);font-weight:700;font-size:clamp(17px,1.5vw,21px);line-height:1;box-shadow:3px 4px 0 var(--ink);white-space:nowrap;animation:float 6s ease-in-out infinite;z-index:3}
+.chip i{display:none}
+.chip.a{left:-4%;top:18%;rotate:-8deg}
+.chip.b{right:-3%;top:52%;rotate:5deg;animation-delay:-2s}
+.chip.c{left:6%;bottom:6%;rotate:-3deg;animation-delay:-4s}
 @keyframes float{50%{transform:translateY(-8px)}}
 .seal{position:absolute;right:-6%;top:-5%;width:128px;height:128px;border-radius:50%;background:var(--sky);color:var(--ink);display:grid;place-items:center;z-index:2}
 .seal svg{position:absolute;inset:0;animation:spin 22s linear infinite}
@@ -86,11 +109,18 @@ section{padding-block:clamp(56px,9vw,112px)}
 @keyframes spin{to{transform:rotate(360deg)}}
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr}.arch-wrap{max-width:420px}.seal{width:100px;height:100px;right:0}.chip.a{left:0}.chip.b{right:0}}
 
-/* marquee */
-.marq{background:var(--deep);color:var(--deep-ink);overflow:hidden;padding-block:18px;white-space:nowrap}
-.marq .t{display:inline-flex;gap:36px;animation:marq 38s linear infinite;padding-right:36px}
-.marq span{font-family:var(--f-display);font-style:italic;font-size:26px;display:inline-flex;align-items:center;gap:36px}
-.marq span::after{content:"✦";font-style:normal;font-size:14px;color:var(--accent)}
+/* letreiro cruzado */
+.marquees{position:relative;height:clamp(150px,19vw,240px);overflow:hidden;display:grid;place-items:center;margin-block:8px 0}
+.marquee{position:absolute;left:-5%;right:-5%;overflow:hidden;padding:14px 0;white-space:nowrap}
+.m1{background:var(--accent);color:#fff;transform:rotate(-3.5deg);z-index:2;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.m2{background:var(--sky);color:var(--ink);transform:rotate(3deg)}
+.mt{display:inline-flex;align-items:center;width:max-content;animation:marq 36s linear infinite}
+.mt.rev{animation-direction:reverse;animation-duration:42s}
+.mt span{display:inline-flex;align-items:center;gap:28px;padding-right:28px}
+.m1 span{font-family:var(--f-display);font-style:italic;font-weight:600;font-size:clamp(26px,3.4vw,46px);line-height:1.1}
+.m2 span{font-family:var(--f-hand);font-weight:700;font-size:clamp(25px,3vw,40px);line-height:1.1}
+.mt span::after{content:"✦";font-style:normal;font-family:var(--f-body);font-size:.5em}
+.m2 span::after{color:var(--accent)}
 @keyframes marq{to{transform:translateX(-50%)}}
 
 /* ring + process */
@@ -230,6 +260,8 @@ section{padding-block:clamp(56px,9vw,112px)}
 .about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,6vw,80px);align-items:center}
 .about .pic{position:relative;max-width:360px;margin-inline:auto;width:100%}
 .about .pic img{border-radius:999px 999px var(--r-lg) var(--r-lg);width:100%;aspect-ratio:1/1.15;object-fit:cover;object-position:50% 20%}
+.about .pic .st{right:-9%;top:26%;rotate:6deg;animation:none}
+.about .pic::before{content:"";position:absolute;top:-10px;right:20%;width:16px;height:16px;border-radius:50%;background:var(--accent);z-index:3}
 .about .pic::after{content:"";position:absolute;inset:18px -18px -18px 18px;border:1.5px solid var(--accent);border-radius:999px 999px var(--r-lg) var(--r-lg);z-index:-1}
 .about blockquote{margin:22px 0 0;padding-left:20px;border-left:3px solid var(--accent);font-family:var(--f-display);font-style:italic;font-size:clamp(20px,2.4vw,26px);line-height:1.3}
 .rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:30px}
@@ -277,11 +309,23 @@ footer a{text-decoration:none}
 
 .rv{transform:translateY(26px);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
 .rv.in{transform:none}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.rv{transform:none}.ring .fg{stroke-dashoffset:75}}
+@media(prefers-reduced-motion:reduce){.intro{display:none}.lash--draw .lash__lid,.lash--draw .lash__hair{stroke-dashoffset:0}*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.rv{transform:none}.ring .fg{stroke-dashoffset:75}}
 </style>
 </head>
 <body>
 
+
+<!-- Entrada: o cílio se desenha e a cortina sobe -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro__inner">
+    <span class="intro__logo"><b>Pri</b> <i>Cílios</i></span>
+    <svg class="lash lash--draw" viewBox="0 0 220 60" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" overflow="visible">
+      <path class="lash__lid" pathLength="1" d="M8 12 Q110 62 212 12"/>
+      <path class="lash__hair" pathLength="1" d="M48.8 28 L41.8 43"/><path class="lash__hair" pathLength="1" d="M69.2 33 L64.2 49"/><path class="lash__hair" pathLength="1" d="M89.6 36 L87.6 53"/><path class="lash__hair" pathLength="1" d="M110 37 L110 54"/><path class="lash__hair" pathLength="1" d="M130.4 36 L132.4 53"/><path class="lash__hair" pathLength="1" d="M150.8 33 L155.8 49"/><path class="lash__hair" pathLength="1" d="M171.2 28 L178.2 43"/>
+    </svg>
+    <span class="intro__sub">Lash &amp; Academy · Araçatuba</span>
+  </div>
+</div>
 
 <div class="prog" id="prog"></div>
 <div class="preview">Prévia para aprovação · o número de WhatsApp ainda será confirmado</div>
@@ -305,8 +349,10 @@ footer a{text-decoration:none}
 <section class="hero"><div class="w hero-grid">
   <div>
     <div class="eyebrow">Lash designer · Araçatuba, SP</div>
-    <h1><span class="l">Cílios que</span><span class="l">parecem <em>seus.</em></span></h1>
-    <p class="lead">Cílios naturais e marrons, prontos em 1h30. Leves e tão naturais que todo mundo vai perguntar o seu segredo.</p>
+    <h1 class="wordmark">Pri <em>Cílios</em></h1>
+    <svg class="lash lash--draw" viewBox="0 0 220 60" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" aria-hidden="true"><path class="lash__lid" pathLength="1" d="M8 12 Q110 62 212 12"/><path class="lash__hair" pathLength="1" d="M48.8 28 L41.8 43"/><path class="lash__hair" pathLength="1" d="M69.2 33 L64.2 49"/><path class="lash__hair" pathLength="1" d="M89.6 36 L87.6 53"/><path class="lash__hair" pathLength="1" d="M110 37 L110 54"/><path class="lash__hair" pathLength="1" d="M130.4 36 L132.4 53"/><path class="lash__hair" pathLength="1" d="M150.8 33 L155.8 49"/><path class="lash__hair" pathLength="1" d="M171.2 28 L178.2 43"/></svg>
+    <p class="hero-tag">Cílios que parecem <em>seus.</em></p>
+    <p class="lead">Cílios <mark class="hl">naturais</mark> e <mark class="hl">marrons</mark>, prontos em 1h30. Leves e tão naturais que todo mundo vai perguntar o seu segredo.</p>
     <div class="cta-row">
       <a class="btn" data-wa="Olá, Pri! Quero agendar meus cílios." href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.100-1.500-1.100-2.800 0-1.300.7-1.900.9-2.200.2-.3.5-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.300 0 .500l-.3.400-.4.400c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.200 1.300 2.500 1.500.3.100.5.100.7-.1l.9-1.100c.2-.3.4-.2.700-.1l1.900.9c.3.1.5.2.5.3.100.200.100.800-.1 1.400Z"/></svg>Agendar meu horário</a>
       <a class="btn ghost" href="#servicos">Ver serviços e valores</a>
@@ -321,13 +367,13 @@ footer a{text-decoration:none}
     <div class="seal"><svg viewBox="0 0 128 128"><defs><path id="c" d="M64,64 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/></defs><text font-size="10.5" letter-spacing="3.3" fill="currentColor" font-family="Manrope" font-weight="700"><textPath href="#c">LASH ACADEMY · CÍLIOS NATURAIS ·</textPath></text></svg><span>Pri</span></div>
     <div class="arch-ring"></div>
     <div class="arch"><img src="img/hero.jpg" alt="Olho com extensão de cílios naturais em tom marrom" width="828" height="744"></div>
-    <div class="chip a"><i></i>Natural e marrom</div>
-    <div class="chip b"><i></i>Maca com massagem</div>
-    <div class="chip c"><i></i>Araçatuba · SP</div>
+    <div class="chip a">feito pro seu olhar</div>
+    <div class="chip b">natural e marrom</div>
+    <div class="chip c">maca com massagem</div>
   </div>
 </div></section>
 
-<div class="marq" aria-hidden="true"><div class="t" id="marq"></div></div>
+<div class="marquees" aria-hidden="true"><div class="marquee m1"><div class="mt" id="mq1"></div></div><div class="marquee m2"><div class="mt rev" id="mq2"></div></div></div>
 
 <section id="atendimento"><div class="w proc">
   <div class="ring rv" id="ring"><svg viewBox="0 0 260 260"><circle class="bg" cx="130" cy="130" r="120"/><circle class="fg" cx="130" cy="130" r="120"/></svg><div class="c"><b>1h30</b><small>até 2h, conforme seus fios</small></div></div>
@@ -351,11 +397,11 @@ footer a{text-decoration:none}
 </div></section>
 
 <section id="sobre"><div class="w about">
-  <div class="pic rv"><img src="img/pri.jpg" alt="Pri, lash designer em Araçatuba" width="900" height="1035"></div>
+  <div class="pic rv"><span class="chip st">essa sou eu</span><img src="img/pri.jpg" alt="Pri, lash designer em Araçatuba" width="900" height="1035"></div>
   <div class="rv">
     <div class="eyebrow">Quem cuida do seu olhar</div>
     <h2 class="h2" style="margin-block:16px 12px">Prazer, eu sou a <em>Pri.</em></h2>
-    <p class="lead">Sou lash designer em Araçatuba e referência em cílios naturais e marrons. Meu objetivo é um tipo de beleza que ninguém percebe que é extensão: só percebe que você está linda.</p>
+    <p class="lead">Sou lash designer em Araçatuba e referência em cílios naturais e marrons. Meu objetivo é um tipo de beleza que ninguém percebe que é extensão: só percebe que você está <mark class="hl">linda</mark>.</p>
     <blockquote>Cílios naturais, marrons e prontos em 1h30.</blockquote>
     <div class="rules">
       <div class="rule"><b>Venha sem rímel</b>Sem maquiagem na região dos olhos. Se usa lentes de contato, retire antes.</div>
@@ -448,6 +494,15 @@ footer a{text-decoration:none}
 <script>
 (function(){
 "use strict";
+
+/* ===== entrada ===== */
+(function(){var it=document.getElementById("intro");if(!it)return;
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches){it.remove();return}
+  var h=document.documentElement;h.style.overflow="hidden";
+  requestAnimationFrame(function(){requestAnimationFrame(function(){var l=it.querySelector(".lash");if(l)l.classList.add("is-drawn")})});
+  setTimeout(function(){it.classList.add("is-done");h.style.overflow="";setTimeout(function(){it.remove()},1100)},2000);
+})();
+(function(){var l=document.querySelector(".hero .lash");if(!l)return;var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;setTimeout(function(){l.classList.add("is-drawn")},rm?0:1500)})();
 /* ===== dados do catálogo ===== */
 var WHATS = ""; // número com DDI, ex.: 5518999999999. Vazio = abre o Instagram.
 var IG = "https://www.instagram.com/priciliosaracatuba/";
@@ -486,9 +541,10 @@ function bindWa(root){$$("[data-wa]",root).forEach(function(a){a.href=wa(a.getAt
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 var ALL={};Object.keys(GROUPS).forEach(function(k){(GROUPS[k].items||[]).forEach(function(i){i.g=GROUPS[k];ALL[i.id]=i})});
 
-/* ===== marquee ===== */
-(function(){var w=["Efeito Cisne","Efeito Anime","Volume Bella","Aurora","Cacau","Luxo","Glamour","Fox","Wispy","Sirena","LED UV","Brow lamination","Efeito boneca","Efeito esquilo","Efeito gatinho"];
-var h=w.map(function(x){return "<span>"+x+"</span>"}).join("");$("#marq").innerHTML=h+h})();
+/* ===== letreiro ===== */
+(function(){function fill(id,w){var h=w.map(function(x){return "<span>"+x+"</span>"}).join("");$(id).innerHTML=h+h+h+h}
+fill("#mq1",["Volume Bella","Aurora","Cacau","Luxo","Glamour","Efeito Cisne"]);
+fill("#mq2",["Efeito Anime","Fox","Wispy","Sirena","LED UV","Brow lamination","boneca","esquilo","gatinho"])})();
 
 /* ===== serviços ===== */
 var cur="trad";
