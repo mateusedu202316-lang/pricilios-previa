@@ -7,15 +7,16 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Knewave&family=Permanent+Marker&display=swap">
 <style>
 /* Layout: editorial studio page. Arch-shaped photos, one giant 1h30 ring, sticky pill nav, dark plum Academy band. */
 :root{
   --bg:#f0f9fd; --paper:#fafeff; --ink:#1f4a68; --muted:#4f6b80; --accent:#1e8fd0; --accent-ink:#ffffff; --accent-hi:#8ce1fb; --sky:#8ce1fb; --soft:#cdeefb; --deep:#2b6489; --deep-ink:#eefaff;
   --line:rgba(31,74,104,.14);
-  --f-display:"Playfair Display",Georgia,"Times New Roman",serif;
-  --f-hand:"Dancing Script","Segoe Script","Brush Script MT",cursive;
-  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-hand:"Permanent Marker","Brush Script MT",cursive;
+  --f-logo:"Knewave","Brush Script MT",system-ui,sans-serif;
+  --f-body:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
   --r-lg:28px; --r-md:18px;
   color-scheme:light;
 }
@@ -24,20 +25,21 @@
 
 *{box-sizing:border-box}
 html{overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:84px}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:clamp(18px,1.25vw,21px);line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
 img{display:block;max-width:100%}
 a{color:inherit}
 button{font:inherit;color:inherit}
-h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.01em}
-h1 em,h2 em,h3 em,.hero-tag em,footer .big em{font-family:var(--f-hand);font-style:normal;font-weight:700;color:var(--accent);font-size:1.14em;letter-spacing:0}
-.hl{background:none;color:var(--accent);font-family:var(--f-hand);font-weight:700;font-size:1.22em;line-height:1}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;line-height:.95;margin:0;text-wrap:balance;letter-spacing:.005em;text-transform:uppercase}
+h1 em,h2 em,h3 em,.hero-tag em,footer .big em{font-family:var(--f-logo);font-style:normal;font-weight:400;text-transform:none;color:var(--accent);font-size:1em;letter-spacing:0}
+.hl{background:none;color:var(--accent);font-family:var(--f-logo);font-weight:400;font-size:1em;line-height:1}
 p{margin:0}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
 .w{width:100%;max-width:1200px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px}
 .eyebrow::before{content:"";width:28px;height:2px;background:currentColor}
-section{padding-block:clamp(56px,9vw,112px)}
+section{position:relative;overflow:clip;padding-block:clamp(56px,9vw,112px)}
+.w{position:relative;z-index:1}
 .h2{font-size:clamp(34px,5.4vw,60px)}
 .lead{font-size:clamp(16px,1.6vw,19px);color:var(--muted);max-width:56ch}
 .sec-head{display:grid;gap:16px;margin-bottom:clamp(28px,4vw,48px)}
@@ -150,7 +152,7 @@ section{padding-block:clamp(56px,9vw,112px)}
 .price-bar{display:flex;flex-wrap:wrap;gap:14px 36px;align-items:baseline;padding:18px 24px;border-radius:var(--r-md);background:var(--soft);margin-bottom:22px}
 .price-bar b{font-family:var(--f-display);font-size:30px;font-weight:600;font-variant-numeric:tabular-nums}
 .price-bar span{font-size:13px;color:var(--muted);display:block;letter-spacing:.04em}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:18px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:18px}
 .card{position:relative;text-align:left;border:0;padding:0;background:var(--paper);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;display:flex;flex-direction:column;box-shadow:0 1px 0 var(--line),0 18px 40px -26px rgba(38,16,28,.45);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
 .card:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 28px 50px -24px rgba(38,16,28,.5)}
 .card .ph{aspect-ratio:1/1.05;overflow:hidden;background:var(--soft)}
@@ -289,7 +291,7 @@ section{padding-block:clamp(56px,9vw,112px)}
 .pay span{padding:8px 16px;border-radius:999px;background:var(--soft);font-weight:700;font-size:14px}
 @media(max-width:860px){.loc{grid-template-columns:1fr}}
 
-footer{background:var(--deep);color:var(--deep-ink);padding-block:56px 40px;margin-top:20px}
+footer{position:relative;overflow:clip;background:var(--deep);color:var(--deep-ink);padding-block:56px 40px;margin-top:20px}
 footer .w{display:grid;gap:28px}
 footer .big{font-family:var(--f-display);font-size:clamp(44px,9vw,120px);line-height:1}
 footer .big em{color:var(--accent)}
@@ -310,6 +312,77 @@ footer a{text-decoration:none}
 .rv{transform:translateY(26px);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
 .rv.in{transform:none}
 @media(prefers-reduced-motion:reduce){.intro{display:none}.lash--draw .lash__lid,.lash--draw .lash__hair{stroke-dashoffset:0}*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.rv{transform:none}.ring .fg{stroke-dashoffset:75}}
+
+/* ===== tipografia da Madu: condensada em caixa alta, pincel nos destaques, marcador nos adesivos ===== */
+.outline-word{position:absolute;pointer-events:none;user-select:none;z-index:0;font-family:var(--f-logo);line-height:.8;white-space:nowrap;font-size:clamp(150px,30vw,470px);color:transparent;-webkit-text-stroke:1.5px color-mix(in srgb,var(--accent) 30%,transparent);will-change:transform}
+.hero__bgword{left:-3%;top:4%}
+.about__bgword{right:-4%;bottom:-3%}
+.gallery__bgword{left:-2%;top:6%}
+.final__bgword{right:-3%;bottom:-6%;-webkit-text-stroke-color:rgba(255,255,255,.16)}
+.eyebrow{font-size:16px;letter-spacing:.24em;font-weight:600}
+.h2{font-size:clamp(44px,6.4vw,88px);line-height:.92}
+.lead{font-size:clamp(19px,1.7vw,23px)}
+.btn{font-size:19px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;padding:13px 24px 11px}
+.nav ul a{font-size:16px;text-transform:uppercase;letter-spacing:.06em;font-weight:600;white-space:nowrap;padding:8px 11px}
+.nav .bar{gap:10px}
+.nav ul{gap:0}
+.logo{font-family:var(--f-logo);font-size:28px;font-weight:400;color:var(--accent);text-shadow:2px 2px 0 var(--sky);gap:8px}
+.logo span{color:var(--ink)}
+.logo i{font-style:normal}
+.preview{font-size:15px;letter-spacing:.1em;text-transform:uppercase}
+.wordmark{font-family:var(--f-logo);font-weight:400;text-transform:none;font-size:clamp(64px,6.3vw,104px);line-height:1;letter-spacing:0;text-shadow:.04em .04em 0 var(--sky)}
+.wordmark em{font-size:1em;font-weight:400}
+.hero-tag{font-size:clamp(30px,3.4vw,44px);font-weight:700;text-transform:uppercase;line-height:1}
+.hero-meta div{font-size:17px}
+.hero-meta b,.price-bar b,.row b,.sheet .pr b,.total .big,.ring .c b,.step::before{font-family:var(--f-logo);font-weight:400}
+.hero-meta b{font-size:34px}
+.price-bar b{font-size:34px}
+.price-bar span,.sheet .pr span{font-size:15px}
+.total .big{font-size:clamp(44px,6vw,64px)}
+.ring .c b{font-size:clamp(64px,11vw,96px)}
+.ring .c small{font-size:15px}
+.step h3{font-size:30px}
+.step p{font-size:19px}
+.tab,.pill{font-size:17px;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+.pill small{font-size:15px}
+.card h3{font-size:34px}
+.card p{font-size:18px}
+.card .more{font-size:16px;text-transform:uppercase;letter-spacing:.12em}
+.row h3{font-size:30px;font-weight:600}
+.row b{font-size:28px}
+.sheet h3{font-size:clamp(42px,5vw,64px)}
+.sheet .pr b{font-size:34px}
+.fine{font-size:16px}
+.chip{font-family:var(--f-hand);font-weight:400;font-size:clamp(14px,1.2vw,18px);padding:.6em .9em .5em}
+.seal span{font-family:var(--f-logo);font-style:normal;font-size:34px}
+.quiz h2{font-size:clamp(46px,6vw,80px)}
+.q-q{font-size:clamp(30px,3.4vw,42px);text-transform:uppercase;font-weight:700;line-height:1}
+.opt{font-size:20px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.opt small{font-size:16px;text-transform:none;letter-spacing:0}
+.res h3{font-size:46px}
+.map h3{font-size:46px}
+.panel h3{font-size:16px;letter-spacing:.2em}
+.total li{font-size:19px}
+.total .man{font-size:18px}
+.about blockquote{font-style:normal;text-transform:uppercase;font-weight:600;font-size:clamp(26px,3vw,38px);line-height:1.05}
+.rule{font-size:18px}.rule b{font-size:17px;text-transform:uppercase;letter-spacing:.1em}
+.acad h2{font-size:clamp(48px,6.4vw,88px)}
+.acad li{font-size:19px}
+.addr{font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:clamp(36px,4.6vw,58px);line-height:.95}
+.pay span{font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+footer .big{font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:clamp(54px,10vw,150px);line-height:.88}
+footer .fl{font-size:17px}
+footer .big em{color:var(--accent-hi)}
+.toast{font-size:18px}
+.lb .cap{font-size:17px}
+.intro__logo{font-family:var(--f-logo);font-weight:400}
+.intro__logo b,.intro__logo i{font-weight:400;font-style:normal}
+.intro__sub{font-size:16px}
+.m1 span{font-family:var(--f-logo);font-style:normal;font-weight:400;font-size:clamp(24px,3vw,42px)}
+.m2 span{font-family:var(--f-hand);font-weight:400;font-size:clamp(22px,2.6vw,36px)}
+.map-diagram text{font-size:13px}
+@media(max-width:860px){.wordmark{font-size:clamp(46px,13vw,96px)}.outline-word{font-size:clamp(130px,42vw,300px)}}
+@media(prefers-reduced-motion:reduce){.outline-word{transform:none!important}}
 </style>
 </head>
 <body>
@@ -346,7 +419,7 @@ footer a{text-decoration:none}
 </div></div></header>
 
 <main id="topo">
-<section class="hero"><div class="w hero-grid">
+<section class="hero"><div class="outline-word hero__bgword" data-drift="-0.25" aria-hidden="true">PRI</div><div class="w hero-grid">
   <div>
     <div class="eyebrow">Lash designer · Araçatuba, SP</div>
     <h1 class="wordmark">Pri <em>Cílios</em></h1>
@@ -396,7 +469,7 @@ footer a{text-decoration:none}
   <p class="fine">Valores sujeitos a alteração no pagamento via cartão. Manutenção somente dentro de 20 dias com ao menos 50% dos fios.</p>
 </div></section>
 
-<section id="sobre"><div class="w about">
+<section id="sobre"><div class="outline-word about__bgword" data-drift="0.18" aria-hidden="true">CÍLIOS</div><div class="w about">
   <div class="pic rv"><span class="chip st">essa sou eu</span><img src="img/pri.jpg" alt="Pri, lash designer em Araçatuba" width="900" height="1035"></div>
   <div class="rv">
     <div class="eyebrow">Quem cuida do seu olhar</div>
@@ -446,7 +519,7 @@ footer a{text-decoration:none}
   </div>
 </div></section>
 
-<section id="resultados" style="background:var(--paper)"><div class="w">
+<section id="resultados" style="background:var(--paper)"><div class="outline-word gallery__bgword" data-drift="0.2" aria-hidden="true">LASH</div><div class="w">
   <div class="sec-head rv"><div class="eyebrow">Resultados</div><h2 class="h2">Olhares que <em>vendem.</em></h2><p class="lead">Toque em uma foto para ampliar. Use as setas do teclado ou deslize no celular.</p></div>
   <div class="grid" id="gal"></div>
 </div></section>
@@ -478,7 +551,7 @@ footer a{text-decoration:none}
 </div></section>
 </main>
 
-<footer><div class="w">
+<footer><div class="outline-word final__bgword" data-drift="-0.2" aria-hidden="true">AGENDE</div><div class="w">
   <div class="big">Bora deixar o seu<br>olhar <em>natural?</em></div>
   <div class="cta-row"><a class="btn" data-wa="Olá, Pri! Quero agendar meu horário." href="#" target="_blank" rel="noopener">Agendar pelo WhatsApp</a><a class="btn light" href="https://www.instagram.com/priciliosaracatuba/" target="_blank" rel="noopener">@priciliosaracatuba</a></div>
   <div class="fl"><span>Pri Cílios · Lash &amp; Academy · Araçatuba, SP</span><span>Prévia do site</span></div>
@@ -503,6 +576,9 @@ footer a{text-decoration:none}
   setTimeout(function(){it.classList.add("is-done");h.style.overflow="";setTimeout(function(){it.remove()},1100)},2000);
 })();
 (function(){var l=document.querySelector(".hero .lash");if(!l)return;var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;setTimeout(function(){l.classList.add("is-drawn")},rm?0:1500)})();
+(function(){var w=[].slice.call(document.querySelectorAll("[data-drift]"));if(!w.length||matchMedia("(prefers-reduced-motion: reduce)").matches)return;var t=false;
+function go(){t=false;var vh=innerHeight;w.forEach(function(e){var r=e.parentNode.getBoundingClientRect();if(r.bottom<-200||r.top>vh+200)return;var c=r.top+r.height/2-vh/2;e.style.transform="translate3d(0,"+(c*parseFloat(e.dataset.drift)).toFixed(1)+"px,0)"})}
+addEventListener("scroll",function(){if(!t){t=true;requestAnimationFrame(go)}},{passive:true});go()})();
 /* ===== dados do catálogo ===== */
 var WHATS = ""; // número com DDI, ex.: 5518999999999. Vazio = abre o Instagram.
 var IG = "https://www.instagram.com/priciliosaracatuba/";
